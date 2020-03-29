@@ -9,10 +9,10 @@
 <!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
 	</parent>
 	<groupId>com.adamsimon</groupId>
-	<artifactId>partner</artifactId>
+	<artifactId>appl</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>partner</name>
-	<description>partner</description>
+	<name>appl</name>
+	<description>appl</description>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -64,16 +64,42 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-		<dependency>
 			<groupId>com.adamsimon</groupId>
 			<artifactId>commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.adamsimon</groupId>
+			<artifactId>api</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.adamsimon</groupId>
+			<artifactId>core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.adamsimon</groupId>
+			<artifactId>partner</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.adamsimon</groupId>
+			<artifactId>ticket</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
-
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

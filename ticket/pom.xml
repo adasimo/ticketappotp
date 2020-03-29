@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 <!--		<relativePath/>&lt;!&ndash; lookup parent from repository &ndash;&gt;-->
 	</parent>
-	<groupId>com.adamsimon.ticketapp</groupId>
+	<groupId>com.adamsimon</groupId>
 	<artifactId>ticket</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ticket</name>

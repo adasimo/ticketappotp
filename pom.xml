@@ -20,6 +20,8 @@
 	</properties>
 	
 	<modules>
+		<module>appl</module>
+		<module>commons</module>
         <module>api</module>
         <module>core</module>
 		<module>ticket</module>
