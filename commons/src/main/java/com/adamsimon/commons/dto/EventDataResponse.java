@@ -1,17 +1,19 @@
 package com.adamsimon.commons.dto;
 
 
+import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
+
 import java.util.Objects;
 
-public class EventDataResponse {
+public class EventDataResponse extends AbstractPartnerResponse {
     EventData data;
-    Boolean success;
+//    Boolean success;
 
     public EventDataResponse() {}
 
     public EventDataResponse(EventData data, Boolean success) {
+        super(success);
         this.data = data;
-        this.success = success;
     }
 
     public EventData getData() {
@@ -22,33 +24,25 @@ public class EventDataResponse {
         this.data = data;
     }
 
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EventDataResponse that = (EventDataResponse) o;
         return Objects.equals(data, that.data) &&
-                Objects.equals(success, that.success);
+                Objects.equals(this.getSuccess(), that.getSuccess());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data, success);
+        return Objects.hash(data, this.getSuccess());
     }
 
     @Override
     public String toString() {
         return "EventDataResponse{" +
                 "data=" + data +
-                ", success=" + success +
+                ", success=" + this.getSuccess() +
                 '}';
     }
 }

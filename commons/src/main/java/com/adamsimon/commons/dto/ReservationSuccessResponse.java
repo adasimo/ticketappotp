@@ -2,12 +2,12 @@ package com.adamsimon.commons.dto;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 
-public class ReservationSuccess extends AbstractPartnerResponse {
+public class ReservationSuccessResponse extends AbstractPartnerResponse {
     Long reservationId;
 
-    public ReservationSuccess() { super(); }
+    public ReservationSuccessResponse() { super(); }
 
-    public ReservationSuccess(Boolean success, Long reservationId) {
+    public ReservationSuccessResponse(Boolean success, Long reservationId) {
         this.setSuccess(success);
         this.reservationId = reservationId;
     }

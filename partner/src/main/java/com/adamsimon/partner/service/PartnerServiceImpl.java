@@ -39,39 +39,39 @@ public class PartnerServiceImpl implements PartnerService {
 
     @Override
     public AbstractPartnerResponse makeReservation(Long eventId, Long seatId) throws IOException, ParseException {
-        logger.info("Trying to make reservation with eventId: " + eventId + " for seatId: " + seatId);
-        JSONObject jsonObject = null;
         try {
-           jsonObject = fetchEvent(eventId);
+            logger.info("Trying to make reservation with eventId: " + eventId + " for seatId: " + seatId);
+            JSONObject jsonObject = fetchEvent(eventId);
+            Boolean isReserved = fetchSeatIsReserved(jsonObject, seatId);
+            if (isReserved == null) {
+                logger.warn("ERROR_NO_SUCH_SEAT for eventId: " + eventId + " for seatId: " + seatId);
+                return new ReservationBuilder.ReservationResponseBuilder()
+                        .getFailedBuilder()
+                        .withErrorCodeToFail(ERROR_NO_SUCH_SEAT)
+                        .build();
+                //new ReservationFailed(false, ERROR_NO_SUCH_SEAT);
+            } else if (!isReserved) {
+                logger.warn("ERROR_SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
+                return new ReservationBuilder.ReservationResponseBuilder()
+                        .getFailedBuilder()
+                        .withErrorCodeToFail(ERROR_SEAT_IS_RESERVED)
+                        .build();
+//            return new ReservationFailed(false, ERROR_SEAT_IS_RESERVED);
+            } else {
+                logger.info("SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
+                return new ReservationBuilder.ReservationResponseBuilder()
+                        .getSuccessBuilder()
+                        .withReservationIdToSuccess(getReservationNumber())
+                        .build();
+//            return new ReservationSuccess(true, getReservationNumber());
+            }
         } catch (NoSuchEventException nse) {
             return new ReservationBuilder.ReservationResponseBuilder()
                     .getFailedBuilder()
                     .withErrorCodeToFail(ERROR_NO_SUCH_EVENT)
                     .build();
         }
-        Boolean isReserved = fetchSeatIsReserved(jsonObject, seatId);
-        if (isReserved == null) {
-            logger.warn("ERROR_NO_SUCH_SEAT for eventId: " + eventId + " for seatId: " + seatId);
-            return new ReservationBuilder.ReservationResponseBuilder()
-                    .getFailedBuilder()
-                    .withErrorCodeToFail(ERROR_NO_SUCH_SEAT)
-                    .build();
-            //new ReservationFailed(false, ERROR_NO_SUCH_SEAT);
-        } else if (!isReserved) {
-            logger.warn("ERROR_SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
-            return new ReservationBuilder.ReservationResponseBuilder()
-                    .getFailedBuilder()
-                    .withErrorCodeToFail(ERROR_SEAT_IS_RESERVED)
-                    .build();
-//            return new ReservationFailed(false, ERROR_SEAT_IS_RESERVED);
-        } else {
-            logger.info("SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
-            return new ReservationBuilder.ReservationResponseBuilder()
-                    .getSuccessBuilder()
-                    .withReservationIdToSuccess(getReservationNumber())
-                    .build();
-//            return new ReservationSuccess(true, getReservationNumber());
-        }
+
     }
 
     private Long getReservationNumber() {

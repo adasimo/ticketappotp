@@ -2,14 +2,14 @@ package com.adamsimon.commons.dto;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 
-public class ReservationFailed extends AbstractPartnerResponse {
+public class ReservationFailedResponse extends AbstractPartnerResponse {
     Integer errorCode;
 
-    public ReservationFailed () {
+    public ReservationFailedResponse() {
         super();
     }
 
-    public ReservationFailed(Boolean success, Integer errorCode) {
+    public ReservationFailedResponse(Boolean success, Integer errorCode) {
         this.setSuccess(success);
         this.errorCode = errorCode;
     }

@@ -1,7 +1,7 @@
 package com.adamsimon.commons.dto.builders;
 
-import com.adamsimon.commons.dto.ReservationFailed;
-import com.adamsimon.commons.dto.ReservationSuccess;
+import com.adamsimon.commons.dto.ReservationFailedResponse;
+import com.adamsimon.commons.dto.ReservationSuccessResponse;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 
 public class ReservationBuilder {
@@ -32,9 +32,9 @@ public class ReservationBuilder {
 
         public AbstractPartnerResponse build() {
             if (this.success) {
-                 return new ReservationSuccess(this.success, this.reservationId);
+                 return new ReservationSuccessResponse(this.success, this.reservationId);
             } else {
-                 return new ReservationFailed(this.success, this.errorCode);
+                 return new ReservationFailedResponse(this.success, this.errorCode);
              }
          }
 

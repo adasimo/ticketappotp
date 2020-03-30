@@ -7,7 +7,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 
 public interface ApiController {
-    ResponseEntity<EntityModel<EventsResponse>> getEvents();
-    ResponseEntity<EntityModel<EventDataResponse>> getEvent (Long eventId);
+    ResponseEntity<EntityModel<AbstractPartnerResponse>> getEvents();
+    ResponseEntity<EntityModel<AbstractPartnerResponse>> getEvent (Long eventId);
     ResponseEntity<EntityModel<AbstractPartnerResponse>> pay(Long eventId, Long seatId, Long cardId);
 }

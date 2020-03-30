@@ -1,15 +1,16 @@
 package com.adamsimon.commons.dto;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class EventData {
     Long eventId;
-    Seat[] seats;
+    List<Seat> seats;
 
     public EventData() {}
 
-    public EventData(Long eventId, Seat[] seats) {
+    public EventData(Long eventId, List<Seat> seats) {
         this.eventId = eventId;
         this.seats = seats;
     }
@@ -22,11 +23,11 @@ public class EventData {
         this.eventId = eventId;
     }
 
-    public Seat[] getSeats() {
+    public List<Seat> getSeats() {
         return seats;
     }
 
-    public void setSeats(Seat[] seats) {
+    public void setSeats(List<Seat> seats) {
         this.seats = seats;
     }
 
@@ -34,7 +35,7 @@ public class EventData {
     public String toString() {
         return "EventData{" +
                 "eventId=" + eventId +
-                ", seats=" + Arrays.toString(seats) +
+                ", seats=" + seats +
                 '}';
     }
 
@@ -44,13 +45,11 @@ public class EventData {
         if (o == null || getClass() != o.getClass()) return false;
         EventData eventData = (EventData) o;
         return Objects.equals(getEventId(), eventData.getEventId()) &&
-                Arrays.equals(getSeats(), eventData.getSeats());
+                Objects.equals(getSeats(), eventData.getSeats());
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(getEventId());
-        result = 31 * result + Arrays.hashCode(getSeats());
-        return result;
+        return Objects.hash(getEventId(), getSeats());
     }
 }

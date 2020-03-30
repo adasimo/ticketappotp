@@ -1,18 +1,20 @@
 package com.adamsimon.commons.dto;
 
+import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class EventsResponse {
+public class EventsResponse extends AbstractPartnerResponse {
     List<EventDetails> data;
-    Boolean success;
+//    Boolean success;
 
     public EventsResponse() {}
 
     public EventsResponse(List<EventDetails> data, Boolean success) {
+        super(success);
         this.data = data;
-        this.success = success;
     }
 
     public List<EventDetails> getData() {
@@ -23,19 +25,11 @@ public class EventsResponse {
         this.data = data;
     }
 
-    public Boolean getSuccess() {
-        return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
-    }
-
     @Override
     public String toString() {
         return "EventsResponse{" +
                 "data=" + data +
-                ", success=" + success +
+                ", success=" + getSuccess() +
                 '}';
     }
 

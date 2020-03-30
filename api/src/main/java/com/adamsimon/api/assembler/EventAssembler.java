@@ -4,19 +4,20 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import com.adamsimon.api.controller.ApiControllerImpl;
 import com.adamsimon.api.interfaces.ApiController;
+import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 import com.adamsimon.commons.dto.EventDataResponse;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EventAssembler implements RepresentationModelAssembler<EventDataResponse, EntityModel<EventDataResponse>> {
+public class EventAssembler implements RepresentationModelAssembler<AbstractPartnerResponse, EntityModel<AbstractPartnerResponse>> {
 
     @Override
-    public EntityModel<EventDataResponse> toModel(EventDataResponse eventDataResponse) {
+    public EntityModel<AbstractPartnerResponse> toModel(AbstractPartnerResponse eventDataResponse) {
 
         return new EntityModel<>(eventDataResponse,
-                linkTo(methodOn(ApiControllerImpl.class).getEvent(eventDataResponse.getData().getEventId())).withSelfRel(),
+                linkTo(methodOn(ApiControllerImpl.class).getEvent(((EventDataResponse) eventDataResponse).getData().getEventId())).withSelfRel(),
                 linkTo(methodOn(ApiControllerImpl.class).getEvents()).withRel("getEvents")
         );
     }

@@ -2,14 +2,19 @@ package com.adamsimon.appl;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.adamsimon" })
+@EntityScan(basePackages = "com.adamsimon.core")
+@PropertySources({@PropertySource("application.properties"), @PropertySource("core.properties")})
 public class TicketApplication {
 
     public static void main(String[] args) {
