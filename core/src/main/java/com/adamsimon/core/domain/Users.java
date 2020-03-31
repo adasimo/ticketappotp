@@ -35,7 +35,7 @@ public class Users {
     String email;
 
 //    @Column(table = "UserToken")
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "UserToken", joinColumns = @JoinColumn(name="userId"))
     @GenericGenerator(name = "tokenGen", strategy = "com.adamsimon.core.generators.TokenGenerator")
     @GeneratedValue(generator = "tokenGen")

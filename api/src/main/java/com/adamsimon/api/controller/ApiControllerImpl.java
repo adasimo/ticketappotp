@@ -30,7 +30,7 @@ public class ApiControllerImpl implements ApiController {
     @Override
     @GetMapping("/getEvents")
     public ResponseEntity<EntityModel<AbstractPartnerResponse>> getEvents() {
-        EventsResponse eventsResponse = this.apiService.getEvents();
+        AbstractPartnerResponse eventsResponse = this.apiService.getEvents();
         return ResponseEntity.ok().body(new EntityModel<>(eventsResponse,
                 linkTo(methodOn(ApiControllerImpl.class).getEvents()).withSelfRel()
         ));
@@ -39,7 +39,7 @@ public class ApiControllerImpl implements ApiController {
     @Override
     @GetMapping("/getEvent/{eventId}")
     public ResponseEntity<EntityModel<AbstractPartnerResponse>> getEvent(@PathVariable("eventId") Long eventId) {
-        EventDataResponse eventsResponse = this.apiService.getEvent(eventId);
+        AbstractPartnerResponse eventsResponse = this.apiService.getEvent(eventId);
         return ResponseEntity.ok().body(eventAssembler.toModel(eventsResponse));
     }
 

@@ -7,14 +7,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import com.adamsimon.core.config.AuthProvider;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.adamsimon" })
 @EntityScan(basePackages = "com.adamsimon.core")
 @PropertySources({@PropertySource("application.properties"), @PropertySource("core.properties")})
+@EnableJpaRepositories(basePackages = "com.adamsimon.core")
 public class TicketApplication {
 
     public static void main(String[] args) {
@@ -36,5 +41,10 @@ public class TicketApplication {
         source.registerCorsConfiguration("/**", config);
 
         return new CorsFilter(source);
+    }
+
+    @Bean
+    public AuthenticationProvider createCustomAuthenticationProvider() {
+        return new AuthProvider();
     }
 }

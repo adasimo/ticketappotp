@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApiServiceImpl implements ApiService {
     @Override
-    public EventsResponse getEvents() {
+    public AbstractPartnerResponse getEvents() {
         EventsResponse eventsResponse = new EventsResponse();
         return eventsResponse;
     }
 
     @Override
-    public EventDataResponse getEvent(Long eventId) {
+    public AbstractPartnerResponse getEvent(Long eventId) {
         EventDataResponse eventDataResponse = new EventDataResponse();
         EventData eventData = new EventData();
         eventData.setEventId(new Long(2222));

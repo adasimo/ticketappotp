@@ -4,6 +4,7 @@ import com.adamsimon.commons.exceptions.NoSuchEventException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,6 +42,15 @@ public class ErrorHandler {
     public Object processValidationError(NoSuchEventException nse) {
         String result = nse.getMessage();
         logger.error("NoSuchEventException", nse);
+        return result;
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ResponseBody
+    public Object processValidationError(BadCredentialsException bce) {
+        String result = bce.getMessage();
+        logger.error("BadCredentialsException", bce);
         return result;
     }
 }
