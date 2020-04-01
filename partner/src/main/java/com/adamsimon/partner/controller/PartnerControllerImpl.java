@@ -17,10 +17,10 @@ import java.io.IOException;
 @RequestMapping("/partner")
 public class PartnerControllerImpl implements PartnerController {
 
-    PartnerService partnerService;
-
     @Autowired
-    public PartnerControllerImpl(PartnerService partnerService) {
+    final PartnerService partnerService;
+
+    public PartnerControllerImpl(final PartnerService partnerService) {
         this.partnerService = partnerService;
     }
 
@@ -33,13 +33,15 @@ public class PartnerControllerImpl implements PartnerController {
 
     @Override
     @GetMapping("/getEvent/{id}")
-    public ResponseEntity<JSONObject> getEvent(@PathVariable("id") Long eventId) throws IOException, ParseException, NoSuchEventException  {
+    public ResponseEntity<JSONObject> getEvent(@PathVariable("id") final Long eventId) throws IOException, ParseException, NoSuchEventException  {
         return new ResponseEntity<>(this.partnerService.getEvent(eventId), HttpStatus.OK);
     }
 
     @Override
     @PostMapping("/reserve")
-    public ResponseEntity<AbstractPartnerResponse> makeReserve(@RequestParam Long eventId, @RequestParam Long seatId) throws IOException, ParseException {
+    public ResponseEntity<AbstractPartnerResponse> makeReserve(@RequestParam final Long eventId,
+                                                               @RequestParam final Long seatId)
+            throws IOException, ParseException {
         return new ResponseEntity<>(this.partnerService.makeReservation(eventId, seatId), HttpStatus.OK);
     }
 }

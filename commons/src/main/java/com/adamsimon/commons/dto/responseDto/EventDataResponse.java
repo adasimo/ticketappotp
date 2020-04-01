@@ -1,7 +1,8 @@
-package com.adamsimon.commons.dto;
+package com.adamsimon.commons.dto.responseDto;
 
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
+import com.adamsimon.commons.dto.helperDto.EventData;
 
 import java.util.Objects;
 

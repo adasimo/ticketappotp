@@ -11,7 +11,7 @@ import java.io.IOException;
 public interface PartnerController {
 
     ResponseEntity<JSONObject> getEvents() throws IOException, ParseException;
-    ResponseEntity<JSONObject> getEvent(Long eventId) throws IOException, ParseException;
-    ResponseEntity<AbstractPartnerResponse> makeReserve(Long eventId, Long seatId) throws IOException, ParseException;
+    ResponseEntity<JSONObject> getEvent(final Long eventId) throws IOException, ParseException;
+    ResponseEntity<AbstractPartnerResponse> makeReserve(final Long eventId, final Long seatId) throws IOException, ParseException;
 
 }

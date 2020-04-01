@@ -1,6 +1,5 @@
-package com.adamsimon.commons.dto;
+package com.adamsimon.commons.dto.helperDto;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 

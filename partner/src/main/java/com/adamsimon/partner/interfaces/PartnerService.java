@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public interface PartnerService {
     JSONObject getEvents() throws IOException, ParseException;
-    JSONObject getEvent(Long eventId) throws IOException, ParseException, NoSuchEventException;
-    AbstractPartnerResponse makeReservation(Long eventId, Long seatId) throws IOException, ParseException;
+    JSONObject getEvent(final Long eventId) throws IOException, ParseException, NoSuchEventException;
+    AbstractPartnerResponse makeReservation(final Long eventId, final Long seatId) throws IOException, ParseException;
 //    JSONObject fetchDataFromFiles(FilesEnum filesEnum) throws IOException, ParseException;
 }

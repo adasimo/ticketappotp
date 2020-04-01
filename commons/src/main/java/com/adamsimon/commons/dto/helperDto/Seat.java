@@ -1,4 +1,4 @@
-package com.adamsimon.commons.dto;
+package com.adamsimon.commons.dto.helperDto;
 
 import com.adamsimon.commons.enums.CurrencyEnum;
 

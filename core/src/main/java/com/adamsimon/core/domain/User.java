@@ -11,11 +11,11 @@ import java.util.Objects;
 @Entity
 @Table(name = "Users")
 //@SecondaryTable(name = "UserToken", pkJoinColumns = @PrimaryKeyJoinColumn(name = "userId", referencedColumnName = "userId"))
-public class Users {
+public class User {
 
-    public Users() {}
+    public User() {}
 
-    public Users(Long userId, String name, String email, List<String> token) {
+    public User(Long userId, String name, String email, List<String> token) {
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -87,11 +87,11 @@ public class Users {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Users users = (Users) o;
-        return Objects.equals(getUserId(), users.getUserId()) &&
-                Objects.equals(getName(), users.getName()) &&
-                Objects.equals(getEmail(), users.getEmail()) &&
-                Objects.equals(getToken(), users.getToken());
+        User user = (User) o;
+        return Objects.equals(getUserId(), user.getUserId()) &&
+                Objects.equals(getName(), user.getName()) &&
+                Objects.equals(getEmail(), user.getEmail()) &&
+                Objects.equals(getToken(), user.getToken());
     }
 
     @Override

@@ -17,7 +17,7 @@ public class CardIdGenerator implements IdentifierGenerator {
     Logger logger = LoggerFactory.getLogger(UserIdGenerator.class);
 
     @Override
-    public Serializable generate(SharedSessionContractImplementor session, Object object)
+    public Serializable generate(final SharedSessionContractImplementor session, final Object object)
             throws HibernateException {
 
         final String PREFIX = "C";

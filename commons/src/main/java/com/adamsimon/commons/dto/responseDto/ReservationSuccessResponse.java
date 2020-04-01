@@ -1,4 +1,4 @@
-package com.adamsimon.commons.dto;
+package com.adamsimon.commons.dto.responseDto;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 

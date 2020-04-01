@@ -1,6 +1,6 @@
 package com.adamsimon.commons.dto.builders;
 
-import com.adamsimon.commons.dto.ErrorResponse;
+import com.adamsimon.commons.dto.responseDto.ErrorResponse;
 
 public class ErrorBuilder {
     public static class ErrorResponseBuilder {

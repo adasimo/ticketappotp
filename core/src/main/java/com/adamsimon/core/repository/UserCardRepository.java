@@ -1,24 +1,24 @@
 package com.adamsimon.core.repository;
 
 import com.adamsimon.core.domain.UserBankCard;
-import com.adamsimon.core.domain.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UserCardRepository extends JpaRepository <UserBankCard, Long> {
-    public List<UserBankCard> findAllByUserId(Long userId);
+    public Optional<UserBankCard> findByUserIdAndCardId(final Long userId, final String cardId);
 
-    public Optional<UserBankCard> findById(Long id);
+    public List<UserBankCard> findAllByUserId(final Long userId);
 
-    public Optional<UserBankCard> findByCardId(String cardId);
+    public Optional<UserBankCard> findByUserId(final Long userId);
 
-    public Optional<UserBankCard> findByCardnumber(String cardnumber);
+    public Optional<UserBankCard> findByCardId(final String cardId);
 
-    public void deleteAllByUserId(Long userId);
+    public Optional<UserBankCard> findByCardnumber(final String cardnumber);
 
-    public void deleteByCardId(String cardId);
+    public void deleteAllByUserId(final Long userId);
 
-    public void deleteById(Long id);
+    public void deleteByCardId(final String cardId);
+
 }

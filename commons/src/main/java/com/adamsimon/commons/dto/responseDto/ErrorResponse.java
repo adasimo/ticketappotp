@@ -1,4 +1,4 @@
-package com.adamsimon.commons.dto;
+package com.adamsimon.commons.dto.responseDto;
 
 import java.util.Objects;
 
@@ -32,8 +32,9 @@ public class ErrorResponse {
     @Override
     public String toString() {
         return "{ \n" +
+                "\"success\": " + "\"" + "false" + "\", \n" +
                 "\"text\": " + "\"" + text + "\", \n" +
-                "\"code\": " + "\"" + code + "\", \n" +
+                "\"code\": " + "\"" + code + "\"\n" +
                 "}";
     }
 

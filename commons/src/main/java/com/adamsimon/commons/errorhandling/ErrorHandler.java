@@ -1,10 +1,12 @@
 package com.adamsimon.commons.errorhandling;
 
-import com.adamsimon.commons.exceptions.NoSuchEventException;
+import com.adamsimon.commons.exceptions.CustomNotFoundException;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,39 +20,21 @@ public class ErrorHandler {
 
     Logger logger = LoggerFactory.getLogger(ErrorHandler.class);
 
-    @ExceptionHandler(IOException.class)
+    @ExceptionHandler({ IOException.class, ParseException.class })
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ResponseBody
-    public Object processValidationError(IOException ie) {
-        String result = ie.getMessage();
-        logger.error("IOException", ie);
+    public Object processValidationError(Exception e) {
+        String result = e.getMessage();
+        logger.error("Exception", e);
         return result;
     }
 
-    @ExceptionHandler(ParseException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(CustomNotFoundException.class)
+    @ResponseStatus(HttpStatus.EXPECTATION_FAILED)
     @ResponseBody
-    public Object processValidationError(ParseException pe) {
-        String result = pe.getMessage();
-        logger.error("ParseException", pe);
-        return result;
-    }
-
-    @ExceptionHandler(NoSuchEventException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public Object processValidationError(NoSuchEventException nse) {
-        String result = nse.getMessage();
-        logger.error("NoSuchEventException", nse);
-        return result;
-    }
-
-    @ExceptionHandler(BadCredentialsException.class)
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ResponseBody
-    public Object processValidationError(BadCredentialsException bce) {
-        String result = bce.getMessage();
-        logger.error("BadCredentialsException", bce);
+    public Object processValidationError(CustomNotFoundException ce) {
+        String result = ce.getMessage();
+        logger.error("CustomNotFoundException", result);
         return result;
     }
 }

@@ -1,25 +1,24 @@
 package com.adamsimon.core.repository;
 
-import com.adamsimon.core.domain.Users;
+import com.adamsimon.core.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UsersRepository extends JpaRepository <Users, Long> {
-    public List<Users> findAllByUserId(Long userId);
+public interface UsersRepository extends JpaRepository <User, Long> {
+    public List<User> findAllByUserId(final Long userId);
 
-    public Optional<Users> findByToken(String token);
+    public Optional<User> findByToken(final String token);
 
-    public Optional<Users> findById(Long id);
+    public Optional<User> findByUserId(final Long id);
 
-    public Optional<Users> findByName(String name);
+    public Optional<User> findByName(final String name);
 
-    public Optional<Users> findByEmail(String email);
+    public Optional<User> findByEmail(final String email);
 
-    public void deleteByEmail(String email);
+    public void deleteByEmail(final String email);
 
-    public void deleteByUserId(Long userId);
+    public void deleteByUserId(final Long userId);
 
-    public void deleteById(Long id);
 }

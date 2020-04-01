@@ -3,9 +3,10 @@ package com.adamsimon.commons.abstractions;
 public abstract class AbstractPartnerResponse {
     Boolean success;
 
-    public AbstractPartnerResponse() {}
+    public AbstractPartnerResponse() { super(); }
 
     public AbstractPartnerResponse(Boolean success) {
+        super();
         this.success = success;
     }
 

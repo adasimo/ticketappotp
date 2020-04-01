@@ -5,7 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
-import java.math.BigInteger;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -33,7 +33,7 @@ public class UserBankCard {
     @Column(length = 100)
     String name;
 
-    BigInteger amount;
+    BigDecimal amount;
 
     String currency;
 
@@ -44,7 +44,7 @@ public class UserBankCard {
                         String cardnumber,
                         String cvc,
                         String name,
-                        BigInteger amount,
+                        BigDecimal amount,
                         String currencyEnum) {
         this.userId = userId;
         this.cardId = cardId;
@@ -95,11 +95,11 @@ public class UserBankCard {
         this.name = name;
     }
 
-    public BigInteger getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(BigInteger amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
