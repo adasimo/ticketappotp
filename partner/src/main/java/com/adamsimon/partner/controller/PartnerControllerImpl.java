@@ -4,7 +4,6 @@ import com.adamsimon.commons.exceptions.NoSuchEventException;
 import com.adamsimon.partner.interfaces.PartnerService;
 import com.adamsimon.partner.interfaces.PartnerController;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/partner")
+@RequestMapping(value = "/partner", produces = "application/json;charset=UTF-8")
 public class PartnerControllerImpl implements PartnerController {
 
     @Autowired
@@ -27,13 +26,13 @@ public class PartnerControllerImpl implements PartnerController {
 
     @Override
     @GetMapping("/getEvents")
-    public ResponseEntity<JSONObject> getEvents() throws IOException, ParseException {
+    public ResponseEntity<AbstractPartnerResponse> getEvents() throws IOException, ParseException {
         return new ResponseEntity<>(this.partnerService.getEvents(), HttpStatus.OK);
     }
 
     @Override
     @GetMapping("/getEvent/{id}")
-    public ResponseEntity<JSONObject> getEvent(@PathVariable("id") final Long eventId) throws IOException, ParseException, NoSuchEventException  {
+    public ResponseEntity<AbstractPartnerResponse> getEvent(@PathVariable("id") final Long eventId) throws IOException, ParseException, NoSuchEventException  {
         return new ResponseEntity<>(this.partnerService.getEvent(eventId), HttpStatus.OK);
     }
 

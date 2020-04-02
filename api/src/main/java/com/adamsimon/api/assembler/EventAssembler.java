@@ -5,6 +5,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 import com.adamsimon.api.controller.ApiControllerImpl;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 import com.adamsimon.commons.dto.responseDto.EventDataResponse;
+import com.adamsimon.commons.dto.responseDto.ReservationFailedResponse;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
@@ -15,9 +16,16 @@ public class EventAssembler implements RepresentationModelAssembler<AbstractPart
     @Override
     public EntityModel<AbstractPartnerResponse> toModel(final AbstractPartnerResponse eventDataResponse) {
 
-        return new EntityModel<>(eventDataResponse,
-                linkTo(methodOn(ApiControllerImpl.class).getEvent(((EventDataResponse) eventDataResponse).getData().getEventId())).withSelfRel(),
-                linkTo(methodOn(ApiControllerImpl.class).getEvents()).withRel("getEvents")
-        );
+        if (eventDataResponse.getSuccess()) {
+            return new EntityModel<>(eventDataResponse,
+                    linkTo(methodOn(ApiControllerImpl.class).getEvent(((EventDataResponse) eventDataResponse).getData().getEventId())).withSelfRel(),
+                    linkTo(methodOn(ApiControllerImpl.class).getEvents()).withRel("getEvents")
+            );
+        } else {
+            return new EntityModel<>(eventDataResponse,
+//                    linkTo(methodOn(ApiControllerImpl.class).getEvent(((ReservationFailedResponse) eventDataResponse).getData().getEventId())).withSelfRel(),
+                    linkTo(methodOn(ApiControllerImpl.class).getEvents()).withRel("getEvents")
+            );
+        }
     }
 }

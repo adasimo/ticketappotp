@@ -50,18 +50,19 @@ public class HelperServiceImpl implements HelperService {
             amount = amount == null ? new BigDecimal(0) : amount;
 
             AbstractPartnerResponse response = this.outgoingService.pay(eventId, seatId, amount);
-            if (response.getSuccess()) {
+//            if (response.getSuccess()) {
                 return response;
-            } else {
-                throw new CustomNotFoundException(response.toString());
-            }
+//            } else {
+//                throw new CustomNotFoundException(response.toString());
+//            }
         } else {
-            final AbstractPartnerResponse errorResponse = new ReservationBuilder.ReservationResponseBuilder()
+//            final AbstractPartnerResponse errorResponse =
+            return new ReservationBuilder.ReservationResponseBuilder()
                     .getFailedBuilder()
                     .withErrorMessageToFail(INVALID_USER_TO_CARD_STR)
                     .withErrorCodeToFail(INVALID_USER_TO_CARD_CODE)
                     .build();
-            throw new CustomNotFoundException(errorResponse.toString());
+//            throw new CustomNotFoundException(errorResponse.toString());
         }
     }
 

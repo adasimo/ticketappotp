@@ -20,6 +20,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Collections;
 
 public class AuthFilter extends AbstractAuthenticationProcessingFilter {
@@ -49,8 +50,12 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
 
         } catch (AuthenticationException aue) {
             ((HttpServletResponse)response).setContentType("application/json");
+            ((HttpServletResponse)response).setCharacterEncoding("UTF-8");
             ((HttpServletResponse)response).setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             ((HttpServletResponse)response).getOutputStream().println(aue.getMessage());
+//            PrintWriter out = ((HttpServletResponse)response).getWriter();
+//            out.println(new ReservationBuilder.ReservationResponseBuilder().getFailedBuilder().withErrorCodeToFail(1111).withErrorMessageToFail("11111").build());
+//            out.flush();;
         }
     }
 
@@ -79,6 +84,7 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
             return this.getAuthenticationManager().authenticate(token);
         } catch (AuthenticationException aue) {
             response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getOutputStream().println(aue.getMessage());
         }

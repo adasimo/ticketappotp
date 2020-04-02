@@ -2,6 +2,8 @@ package com.adamsimon.ticket.service;
 
 import static com.adamsimon.commons.constants.Constants.*;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
+import com.adamsimon.commons.dto.builders.ReservationBuilder;
+import com.adamsimon.commons.dto.responseDto.EventDataResponse;
 import com.adamsimon.commons.dto.responseDto.EventsResponse;
 import com.adamsimon.commons.dto.responseDto.ReservationFailedResponse;
 import com.adamsimon.commons.dto.responseDto.ReservationSuccessResponse;
@@ -30,46 +32,74 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
 
     @Override
     public AbstractPartnerResponse getEvents() {
-            final HttpHeaders headers = new HttpHeaders();
-            headers.set(TOKEN_HEADER, "999999999999999999");
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            final HttpEntity httpEntity = new HttpEntity(headers);
-            final String response = restTemplate.exchange(
-                    buildPartnerCall(GET_EVENTS_NAME, null, null),
-                    HttpMethod.GET,
-                    httpEntity,
-                    String.class
-            ).getBody();
-            final Gson gson = new Gson();
-            return gson.fromJson(response, EventsResponse.class);
+        final String response = restTemplate.exchange(
+                buildPartnerCall(GET_EVENTS_NAME, null, null),
+                HttpMethod.GET,
+                getHeadersEntity(),
+                String.class
+        ).getBody();
+        if (response == null) {
+            return returnNotFoundError();
+        }
+        return new Gson().fromJson(response, EventsResponse.class);
     }
 
     @Override
     public AbstractPartnerResponse getEvent(final Long eventId) {
-        return restTemplate.exchange(
+        final String response = restTemplate.exchange(
                 buildPartnerCall(GET_EVENT_NAME, eventId.toString(), null),
                 HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<AbstractPartnerResponse>() {
-                }
+                getHeadersEntity(),
+                String.class
         ).getBody();
+        if (response == null) {
+            return returnNotFoundError();
+        }
+        if (response.contains("\"success\":true")) {
+            return new Gson().fromJson(response, EventDataResponse.class);
+        } else {
+            return new Gson().fromJson(response, ReservationFailedResponse.class);
+        }
     }
 
     @Override
     public AbstractPartnerResponse pay(final Long eventId, final Long seatId) {
-        return restTemplate.exchange(
+        final String response = restTemplate.exchange(
                 buildPartnerCall(RESERVE, null, getMapForQueryParams(eventId, seatId)),
                 HttpMethod.POST,
-                null,
-                new ParameterizedTypeReference<AbstractPartnerResponse>() {
-                }
+                getHeadersEntity(),
+                String.class
         ).getBody();
+        if (response == null) {
+            return returnNotFoundError();
+        }
+        if (response.contains("\"success\":true")) {
+            return new Gson().fromJson(response, ReservationSuccessResponse.class);
+        } else {
+            return new Gson().fromJson(response, ReservationFailedResponse.class);
+        }
+    }
+
+    @Override
+    public AbstractPartnerResponse returnNotFoundError() {
+        return new ReservationBuilder.ReservationResponseBuilder()
+                .getFailedBuilder()
+                .withErrorCodeToFail(ERROR_PARTNER_NOT_FOUND_CODE)
+                .withErrorMessageToFail(ERROR_PARTNER_NOT_FOUND_STR)
+                .build();
     }
 
     private void setRestTemplate() {
         if (restTemplate == null) {
             this.restTemplate = new RestTemplate();
         }
+    }
+
+    private HttpEntity getHeadersEntity() {
+        final HttpHeaders headers = new HttpHeaders();
+        headers.set(TOKEN_HEADER, "999999999999999999");
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        return new HttpEntity(headers);
     }
 
     private String buildPartnerCall(final String methodName, final String pathParam, final Map<String, String> queryParams) {

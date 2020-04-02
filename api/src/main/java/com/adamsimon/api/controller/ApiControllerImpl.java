@@ -8,14 +8,17 @@ import com.adamsimon.api.assembler.EventAssembler;
 import com.adamsimon.api.interfaces.ApiController;
 import com.adamsimon.api.interfaces.ApiService;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
+import com.adamsimon.commons.dto.responseDto.EventDataResponse;
+import com.adamsimon.commons.dto.responseDto.EventsResponse;
 import com.adamsimon.commons.exceptions.CustomNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value = "/api", produces = "application/json;charset=UTF-8")
 public class ApiControllerImpl implements ApiController {
 
     final ApiService apiService;
@@ -32,16 +35,31 @@ public class ApiControllerImpl implements ApiController {
     @GetMapping("/getEvents")
     public ResponseEntity<EntityModel<AbstractPartnerResponse>> getEvents() {
         final AbstractPartnerResponse eventsResponse = this.apiService.getEvents();
-        return ResponseEntity.ok().body(new EntityModel<>(eventsResponse,
-                linkTo(methodOn(ApiControllerImpl.class).getEvents()).withSelfRel()
-        ));
+        if (eventsResponse.getSuccess()) {
+            return ResponseEntity.ok().body(new EntityModel<>(eventsResponse,
+                    linkTo(methodOn(ApiControllerImpl.class).getEvents()).withSelfRel()));
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(new EntityModel<>(eventsResponse,
+                    linkTo(methodOn(ApiControllerImpl.class).getEvents()).withSelfRel()));
+        }
     }
 
     @Override
     @GetMapping("/getEvent/{eventId}")
     public ResponseEntity<EntityModel<AbstractPartnerResponse>> getEvent(@PathVariable("eventId") final Long eventId) {
         final AbstractPartnerResponse eventsResponse = this.apiService.getEvent(eventId);
-        return ResponseEntity.ok().body(eventAssembler.toModel(eventsResponse));
+//        return ResponseEntity.ok().body(eventAssembler.toModel(eventsResponse));
+        if (eventsResponse.getSuccess()) {
+            return ResponseEntity.ok().body(new EntityModel<>(eventsResponse,
+                    linkTo(methodOn(ApiControllerImpl.class).getEvent(eventId)).withSelfRel(),
+                    linkTo(methodOn(ApiControllerImpl.class).getEvents()).withRel("getEvents")
+            ));
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(new EntityModel<>(eventsResponse,
+                    linkTo(methodOn(ApiControllerImpl.class).getEvent(eventId)).withSelfRel(),
+                    linkTo(methodOn(ApiControllerImpl.class).getEvents()).withRel("getEvents")
+            ));
+        }
     }
 
     @Override
@@ -60,7 +78,7 @@ public class ApiControllerImpl implements ApiController {
                     linkTo(methodOn(ApiControllerImpl.class).getEvent(eventId)).withRel("getEvent")
         ));
         } else  {
-            return ResponseEntity.badRequest().body(new EntityModel<>(abstractPartnerResponse,
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(new EntityModel<>(abstractPartnerResponse,
                     linkTo(methodOn(ApiControllerImpl.class).pay(eventId, seatId, cardId, PLACEHOLDER_TOKEN_HEADER))
                             .withSelfRel(),
                     linkTo(methodOn(ApiControllerImpl.class).getEvents()).withRel("getEvents"),
