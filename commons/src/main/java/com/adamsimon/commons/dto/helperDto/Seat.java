@@ -5,10 +5,10 @@ import com.adamsimon.commons.enums.CurrencyEnum;
 import java.util.Objects;
 
 public class Seat {
-    String id;
-    Integer price;
-    CurrencyEnum currency;
-    Boolean reserved;
+    private String id;
+    private Integer price;
+    private CurrencyEnum currency;
+    private Boolean reserved;
 
     public Seat() {}
 

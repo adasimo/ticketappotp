@@ -4,8 +4,8 @@ import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 
 public class ReservationFailedResponse extends AbstractPartnerResponse {
 
-    Integer errorCode;
-    String errorMessage;
+    private Integer errorCode;
+    private String errorMessage;
 
     public ReservationFailedResponse() {
         super();

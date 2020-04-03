@@ -13,6 +13,25 @@ import java.util.Objects;
 //@SecondaryTable(name = "UserToken", pkJoinColumns = @PrimaryKeyJoinColumn(name = "userId", referencedColumnName = "userId"))
 public class User {
 
+    @Id
+    @GenericGenerator(name = "userIdGen", strategy = "com.adamsimon.core.generators.UserIdGenerator")
+    @GeneratedValue(generator = "userIdGen")
+    @Column(name = "userId", nullable = false)
+    private Long userId;
+    @NotNull(message = "{name.required}")
+    @Column(name = "name", length = 100)
+    private String name;
+    @NotNull(message = "{email.required}")
+    @Pattern(regexp = "\\w+@\\w+\\.\\w+(,\\s*\\w+@\\w+\\.\\w+)*", message = "{email.invalid}")
+    private String email;
+
+//    @Column(table = "UserToken")
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "UserToken", joinColumns = @JoinColumn(name="userId"))
+    @GenericGenerator(name = "tokenGen", strategy = "com.adamsimon.core.generators.TokenGenerator")
+    @GeneratedValue(generator = "tokenGen")
+    private List<String> token;
+
     public User() {}
 
     public User(Long userId, String name, String email, List<String> token) {
@@ -21,25 +40,6 @@ public class User {
         this.email = email;
         this.token = token;
     }
-
-    @Id
-    @GenericGenerator(name = "userIdGen", strategy = "com.adamsimon.core.generators.UserIdGenerator")
-    @GeneratedValue(generator = "userIdGen")
-    @Column(name = "userId", nullable = false)
-    Long userId;
-    @NotNull(message = "{name.required}")
-    @Column(name = "name", length = 100)
-    String name;
-    @NotNull(message = "{email.required}")
-    @Pattern(regexp = "\\w+@\\w+\\.\\w+(,\\s*\\w+@\\w+\\.\\w+)*", message = "{email.invalid}")
-    String email;
-
-//    @Column(table = "UserToken")
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "UserToken", joinColumns = @JoinColumn(name="userId"))
-    @GenericGenerator(name = "tokenGen", strategy = "com.adamsimon.core.generators.TokenGenerator")
-    @GeneratedValue(generator = "tokenGen")
-    List<String> token;
 
     public Long getUserId() {
         return userId;

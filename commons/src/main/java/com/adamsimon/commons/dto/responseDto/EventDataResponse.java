@@ -7,7 +7,7 @@ import com.adamsimon.commons.dto.helperDto.EventData;
 import java.util.Objects;
 
 public class EventDataResponse extends AbstractPartnerResponse {
-    EventData data;
+    private EventData data;
 //    Boolean success;
 
     public EventDataResponse() {}

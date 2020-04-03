@@ -13,29 +13,29 @@ import java.util.Objects;
 public class UserBankCard {
 
     @Column(name = "userId")
-    Long userId;
+    private Long userId;
 
     @Id
     @Column(name = "cardId")
     @GenericGenerator(name = "cardIdGen", strategy = "com.adamsimon.core.generators.CardIdGenerator")
     @GeneratedValue(generator = "cardId")
     @Pattern(regexp = "^C\\d{4}$", message = "{cardId.invalid}")
-    String cardId;
+    private String cardId;
 
     @Column(length = 16)
     @Pattern(regexp = "^\\d{16}$")
-    String cardnumber;
+    private String cardnumber;
 
     @Column(length = 3)
     @Pattern(regexp = "^\\d{3}$")
-    String cvc;
+    private String cvc;
 
     @Column(length = 100)
-    String name;
+    private String name;
 
-    BigDecimal amount;
+    private BigDecimal amount;
 
-    String currency;
+    private String currency;
 
     public UserBankCard() {}
 

@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class EventData {
-    Long eventId;
-    List<Seat> seats;
+    private Long eventId;
+    private List<Seat> seats;
 
     public EventData() {}
 

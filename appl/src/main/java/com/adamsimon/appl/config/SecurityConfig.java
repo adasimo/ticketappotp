@@ -1,19 +1,14 @@
-package com.adamsimon.core.config;
+package com.adamsimon.appl.config;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.authentication.AnonymousAuthenticationFilter;
-import org.springframework.security.web.savedrequest.NullRequestCache;
 import org.springframework.security.web.util.matcher.AndRequestMatcher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
@@ -30,7 +25,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 //        .and().exceptionHandling().accessDeniedHandler(restAccessDeniedHandler);
         httpSecurity
-                .addFilterBefore(createCustomFilter(), AnonymousAuthenticationFilter.class).csrf().disable();
+                .addFilterBefore(createCustomFilter(), AnonymousAuthenticationFilter.class)
+                .authorizeRequests().antMatchers("/h2-console/**").permitAll()
+                .and()
+                .csrf().disable();
+        httpSecurity.headers().frameOptions().disable();
 //        httpSecurity
 //                .csrf().disable();
 //                .ignoringAntMatchers("/**").and().authorizeRequests()

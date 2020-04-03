@@ -8,5 +8,5 @@ public interface PartnerCallerService {
     AbstractPartnerResponse getEvents();
     AbstractPartnerResponse getEvent(final Long eventId);
     AbstractPartnerResponse pay(final Long eventId, final Long seatId);
-    AbstractPartnerResponse returnNotFoundError();
+    AbstractPartnerResponse returnError(final int errorCode, final String errorMessage);
 }

@@ -1,14 +1,16 @@
 package com.adamsimon.commons.constants;
 
 public class Constants {
-
-    public static final String TOKEN_HEADER = "x-auth-token";
+    
+    public static final String TOKEN_HEADER = "User-Token";
     public static final String PLACEHOLDER_TOKEN_HEADER = "***";
     public static final String LOCAL_URL_PREFIX = "http://localhost";
     public static final String LOCAL_PORT = "8080";
 
     public static final String GET_EVENTS_NAME = "/getEvents/";
     public static final String GET_EVENT_NAME = "/getEvent/";
+    public static final String GET_PAY_NAME = "/pay";
+    public static final String GET_RESERVE_NAME = "/reserve";
     public static final String RESERVE = "/reserve";
     public static final String PARTNER_PREFIX = "/partner";
 
@@ -33,6 +35,12 @@ public class Constants {
     public static final String INVALID_USER_TOKEN_STR = "A felhasználói token lejárt vagy nem értelmezhető!";
     public static final int INVALID_TOKEN_CODE = 10051;
 
+    public static final String NO_PARTNER_TOKEN_STR = "A partner token nem szerepel!";
+    public static final int NO_PARTNER_TOKEN_CODE = 90050;
+
+    public static final String INVALID_PARTNER_TOKEN_STR = "A partner token lejárt vagy nem értelmezhető!";
+    public static final int INVALID_PARTNERTOKEN_CODE = 90051;
+
     public static final String INVALID_USER_TO_CARD_STR = "Ez a bankkártya nem ehhez a felhasználóhoz tartozik!";
     public static final int INVALID_USER_TO_CARD_CODE = 10100;
 
@@ -53,7 +61,6 @@ public class Constants {
 
     public static final int ERROR_EVENT_HAS_STARTED_TICKET = 20011;
     public static final String ERROR_EVENT_HAS_STARTED_TICKET_STR = "Olyan eseményre, ami már elkezdődött, nem lehet jegyet eladni!";
-
 
     public static final String ERROR_NO_SUCH_EVENT_TEXT = "No such event with id: ";
 }

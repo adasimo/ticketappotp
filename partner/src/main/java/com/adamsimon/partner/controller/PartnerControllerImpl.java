@@ -1,6 +1,5 @@
 package com.adamsimon.partner.controller;
 
-import com.adamsimon.commons.exceptions.NoSuchEventException;
 import com.adamsimon.partner.interfaces.PartnerService;
 import com.adamsimon.partner.interfaces.PartnerController;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
@@ -32,7 +31,7 @@ public class PartnerControllerImpl implements PartnerController {
 
     @Override
     @GetMapping("/getEvent/{id}")
-    public ResponseEntity<AbstractPartnerResponse> getEvent(@PathVariable("id") final Long eventId) throws IOException, ParseException, NoSuchEventException  {
+    public ResponseEntity<AbstractPartnerResponse> getEvent(@PathVariable("id") final Long eventId) throws IOException, ParseException  {
         return new ResponseEntity<>(this.partnerService.getEvent(eventId), HttpStatus.OK);
     }
 

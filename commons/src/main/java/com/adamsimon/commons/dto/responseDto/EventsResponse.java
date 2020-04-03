@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class EventsResponse extends AbstractPartnerResponse {
-    List<EventDetails> data;
+    private List<EventDetails> data;
 //    Boolean success;
 
     public EventsResponse() {}

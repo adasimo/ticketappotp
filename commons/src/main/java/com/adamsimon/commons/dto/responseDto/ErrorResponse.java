@@ -3,8 +3,8 @@ package com.adamsimon.commons.dto.responseDto;
 import java.util.Objects;
 
 public class ErrorResponse {
-    String text;
-    Integer code;
+    private String text;
+    private Integer code;
 
     public ErrorResponse() {}
 

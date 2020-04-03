@@ -1,0 +1,1111 @@
+2020-04-03 14:36:56.372  INFO 18144 --- [main] com.adamsimon.appl.TicketApplication     : Starting TicketApplication on RHUB21025 with PID 18144 (C:\Users\VSD5303\Downloads\ticketapp\appl\target\classes started by VSD5303 in C:\Users\VSD5303\Downloads\ticketapp)
+2020-04-03 14:36:56.378  INFO 18144 --- [main] com.adamsimon.appl.TicketApplication     : No active profile set, falling back to default profiles: default
+2020-04-03 14:36:57.914  INFO 18144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-04-03 14:36:58.038  INFO 18144 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 112ms. Found 4 JPA repository interfaces.
+2020-04-03 14:36:58.970  INFO 18144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:36:58.975  INFO 18144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:36:58.978  INFO 18144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5f80fa43' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:36:58.981  INFO 18144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:36:58.986  INFO 18144 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:36:59.332  INFO 18144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-04-03 14:36:59.343  INFO 18144 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-03 14:36:59.346  INFO 18144 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-03 14:36:59.476  INFO 18144 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-03 14:36:59.476  INFO 18144 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3020 ms
+2020-04-03 14:36:59.670  INFO 18144 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-03 14:36:59.960  INFO 18144 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-03 14:36:59.968  INFO 18144 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2020-04-03 14:37:00.417  INFO 18144 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-03 14:37:00.524  INFO 18144 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-03 14:37:00.715  INFO 18144 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-03 14:37:00.866  INFO 18144 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-03 14:37:02.076  INFO 18144 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-03 14:37:02.085  INFO 18144 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-03 14:37:02.197  WARN 18144 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-03 14:37:03.168  INFO 18144 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@277bc3a5, org.springframework.security.web.context.SecurityContextPersistenceFilter@3de56885, org.springframework.security.web.header.HeaderWriterFilter@77ba583, org.springframework.security.web.authentication.logout.LogoutFilter@5c1c9881, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d07aacc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c90029b, com.adamsimon.appl.config.AuthFilter@214fba74, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@252c6cdb, org.springframework.security.web.session.SessionManagementFilter@2fb48970, org.springframework.security.web.access.ExceptionTranslationFilter@6f7a20da, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d76099a]
+2020-04-03 14:37:03.324  INFO 18144 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-03 14:37:04.099  INFO 18144 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-03 14:37:04.200  INFO 18144 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-03 14:37:04.202  INFO 18144 --- [main] com.adamsimon.appl.TicketApplication     : Started TicketApplication in 8.399 seconds (JVM running for 10.236)
+2020-04-03 14:37:04.864  INFO 18144 --- [RMI TCP Connection(1)-10.197.47.204] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-03 14:37:04.865  INFO 18144 --- [RMI TCP Connection(1)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-03 14:37:04.877  INFO 18144 --- [RMI TCP Connection(1)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+2020-04-03 14:37:09.543  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:09.544  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:09.546  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:37:09.550  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A felhasználói token nem szerepel!", 
+"code": "10050"
+}
+2020-04-03 14:37:09.552  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A felhasználói token nem szerepel!", 
+"code": "10050"
+}
+2020-04-03 14:37:16.736  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:16.736  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:16.736  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:37:16.737  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:37:16.737  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:37:16.978  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A felhasználói token lejárt vagy nem értelmezhető!", 
+"code": "10051"
+}
+2020-04-03 14:37:16.980  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A felhasználói token lejárt vagy nem értelmezhető!", 
+"code": "10051"
+}
+2020-04-03 14:37:28.165  INFO 18144 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:28.166  INFO 18144 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:28.166  INFO 18144 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:37:28.166  INFO 18144 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:37:28.167  INFO 18144 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:37:28.224  INFO 18144 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:37:28.290  INFO 18144 --- [http-nio-8080-exec-4] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:37:28.290  INFO 18144 --- [http-nio-8080-exec-4] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/1
+2020-04-03 14:37:28.375  INFO 18144 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:28.375  INFO 18144 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:28.375  INFO 18144 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/1
+2020-04-03 14:37:28.375  INFO 18144 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:37:28.375  INFO 18144 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:37:28.398  INFO 18144 --- [http-nio-8080-exec-4] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:37:28.411  INFO 18144 --- [http-nio-8080-exec-4] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:37:28.411  INFO 18144 --- [http-nio-8080-exec-4] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:37:28.412  INFO 18144 --- [http-nio-8080-exec-4] c.a.t.service.TicketBuyingServiceImpl    : got into mappinggetevent
+2020-04-03 14:37:28.412  INFO 18144 --- [http-nio-8080-exec-4] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:37:39.058  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:39.058  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:39.059  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:37:39.059  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:37:39.059  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:37:39.062  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:37:39.068  WARN 18144 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-04-03 14:37:39.078  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:39.079  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:39.079  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /error
+2020-04-03 14:37:44.843  INFO 18144 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:44.844  INFO 18144 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:44.844  INFO 18144 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:37:44.844  INFO 18144 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:37:44.845  INFO 18144 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:37:44.848  INFO 18144 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:37:44.857  INFO 18144 --- [http-nio-8080-exec-7] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:37:44.857  INFO 18144 --- [http-nio-8080-exec-7] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0001token ***
+2020-04-03 14:37:44.867  INFO 18144 --- [http-nio-8080-exec-7] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "Ez a bankkártya nem ehhez a felhasználóhoz tartozik!", 
+"code": "10100"
+}
+2020-04-03 14:37:55.375  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:55.376  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:55.377  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:37:55.377  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:37:55.378  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:37:55.380  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:37:55.385  INFO 18144 --- [http-nio-8080-exec-8] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:37:55.385  INFO 18144 --- [http-nio-8080-exec-8] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0003token ***
+2020-04-03 14:37:55.407  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:37:55.407  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:37:55.407  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:37:55.407  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:37:55.407  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:37:55.407  INFO 18144 --- [http-nio-8080-exec-8] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:37:55.411  INFO 18144 --- [http-nio-8080-exec-8] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:37:55.411  INFO 18144 --- [http-nio-8080-exec-8] c.a.t.service.TicketBuyingServiceImpl    : allResponse getEventDetails: 
+2020-04-03 14:37:55.411  INFO 18144 --- [http-nio-8080-exec-8] c.a.t.service.TicketBuyingServiceImpl    : notgotevent
+2020-04-03 14:37:55.411  INFO 18144 --- [http-nio-8080-exec-8] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:37:55.412  INFO 18144 --- [http-nio-8080-exec-8] c.a.t.service.TicketBuyingServiceImpl    : eventdetails null
+2020-04-03 14:37:55.412  INFO 18144 --- [http-nio-8080-exec-8] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "Nem létezik ilyen esemény!", 
+"code": "20001"
+}
+2020-04-03 14:38:07.177  INFO 18144 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:38:07.179  INFO 18144 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:38:07.179  INFO 18144 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:38:07.180  INFO 18144 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:38:07.180  INFO 18144 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:38:07.183  INFO 18144 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:38:07.185  INFO 18144 --- [http-nio-8080-exec-10] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:38:07.185  INFO 18144 --- [http-nio-8080-exec-10] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay1 1 C0003token ***
+2020-04-03 14:38:07.195  INFO 18144 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:38:07.196  INFO 18144 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:38:07.196  INFO 18144 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:38:07.196  INFO 18144 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:38:07.196  INFO 18144 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:38:07.199  INFO 18144 --- [http-nio-8080-exec-10] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:38:07.200  INFO 18144 --- [http-nio-8080-exec-10] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:38:07.200  INFO 18144 --- [http-nio-8080-exec-10] c.a.t.service.TicketBuyingServiceImpl    : allResponse getEventDetails: 
+2020-04-03 14:38:07.200  INFO 18144 --- [http-nio-8080-exec-10] c.a.t.service.TicketBuyingServiceImpl    : notgotevent
+2020-04-03 14:38:07.200  INFO 18144 --- [http-nio-8080-exec-10] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:38:07.200  INFO 18144 --- [http-nio-8080-exec-10] c.a.t.service.TicketBuyingServiceImpl    : eventdetails null
+2020-04-03 14:38:07.200  INFO 18144 --- [http-nio-8080-exec-10] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "Nem létezik ilyen esemény!", 
+"code": "20001"
+}
+2020-04-03 14:39:05.854  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:39:05.854  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:39:05.855  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:39:05.855  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:39:05.855  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:39:05.859  INFO 18144 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:39:05.861  INFO 18144 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:39:05.861  INFO 18144 --- [http-nio-8080-exec-2] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay1 1 C0003token ***
+2020-04-03 14:39:05.872  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:39:05.872  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:39:05.873  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:39:05.873  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:39:05.873  INFO 18144 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:39:05.875  INFO 18144 --- [http-nio-8080-exec-2] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:39:05.875  INFO 18144 --- [http-nio-8080-exec-2] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:39:05.875  INFO 18144 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : allResponse getEventDetails: 
+2020-04-03 14:39:05.875  INFO 18144 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : notgotevent
+2020-04-03 14:39:05.875  INFO 18144 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:39:05.875  INFO 18144 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : eventdetails null
+2020-04-03 14:39:05.875  INFO 18144 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "Nem létezik ilyen esemény!", 
+"code": "20001"
+}
+2020-04-03 14:40:37.448  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:40:37.449  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:40:37.450  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:40:37.450  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:40:37.450  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:40:37.452  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:40:37.454  WARN 18144 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2020-04-03 14:40:37.454  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:40:37.454  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:40:37.455  INFO 18144 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /error
+2020-04-03 14:40:41.212  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:40:41.213  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:40:41.213  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:40:41.213  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:40:41.213  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:40:41.216  INFO 18144 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:40:41.217  INFO 18144 --- [http-nio-8080-exec-9] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:40:41.219  INFO 18144 --- [http-nio-8080-exec-9] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/1
+2020-04-03 14:40:41.226  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:40:41.226  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:40:41.226  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/1
+2020-04-03 14:40:41.226  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:40:41.227  INFO 18144 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:40:41.230  INFO 18144 --- [http-nio-8080-exec-9] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:40:41.230  INFO 18144 --- [http-nio-8080-exec-9] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:40:41.230  INFO 18144 --- [http-nio-8080-exec-9] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:40:41.230  INFO 18144 --- [http-nio-8080-exec-9] c.a.t.service.TicketBuyingServiceImpl    : got into mappinggetevent
+2020-04-03 14:40:41.230  INFO 18144 --- [http-nio-8080-exec-9] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:41:55.737  INFO 13772 --- [main] com.adamsimon.appl.TicketApplication     : Starting TicketApplication on RHUB21025 with PID 13772 (C:\Users\VSD5303\Downloads\ticketapp\appl\target\classes started by VSD5303 in C:\Users\VSD5303\Downloads\ticketapp)
+2020-04-03 14:41:55.741  INFO 13772 --- [main] com.adamsimon.appl.TicketApplication     : No active profile set, falling back to default profiles: default
+2020-04-03 14:41:57.498  INFO 13772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-04-03 14:41:57.664  INFO 13772 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 154ms. Found 4 JPA repository interfaces.
+2020-04-03 14:41:58.988  INFO 13772 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:41:58.994  INFO 13772 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:41:59.000  INFO 13772 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5e268ce6' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:41:59.001  INFO 13772 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:41:59.004  INFO 13772 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:41:59.577  INFO 13772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-04-03 14:41:59.594  INFO 13772 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-03 14:41:59.594  INFO 13772 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-03 14:41:59.835  INFO 13772 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-03 14:41:59.835  INFO 13772 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4012 ms
+2020-04-03 14:42:00.116  INFO 13772 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-03 14:42:00.539  INFO 13772 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-03 14:42:00.555  INFO 13772 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2020-04-03 14:42:01.153  INFO 13772 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-03 14:42:01.296  INFO 13772 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-03 14:42:01.567  INFO 13772 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-03 14:42:01.795  INFO 13772 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-03 14:42:03.301  INFO 13772 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-03 14:42:03.316  INFO 13772 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-03 14:42:03.509  WARN 13772 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-03 14:42:05.003  INFO 13772 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@254e9709, org.springframework.security.web.context.SecurityContextPersistenceFilter@52657d5f, org.springframework.security.web.header.HeaderWriterFilter@5a82bc58, org.springframework.security.web.authentication.logout.LogoutFilter@a0d875d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2211b44f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c2a903f, com.adamsimon.appl.config.AuthFilter@350f18a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@147c00aa, org.springframework.security.web.session.SessionManagementFilter@6210666c, org.springframework.security.web.access.ExceptionTranslationFilter@5cbe95b1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4e8d9bb6]
+2020-04-03 14:42:05.202  INFO 13772 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-03 14:42:06.041  INFO 13772 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-03 14:42:06.145  INFO 13772 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-03 14:42:06.148  INFO 13772 --- [main] com.adamsimon.appl.TicketApplication     : Started TicketApplication in 11.001 seconds (JVM running for 12.888)
+2020-04-03 14:42:07.450  INFO 13772 --- [RMI TCP Connection(5)-10.197.47.204] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-03 14:42:07.451  INFO 13772 --- [RMI TCP Connection(5)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-03 14:42:07.460  INFO 13772 --- [RMI TCP Connection(5)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-04-03 14:42:10.720  INFO 13772 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:42:10.721  INFO 13772 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:42:10.724  INFO 13772 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:42:10.724  INFO 13772 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:42:10.726  INFO 13772 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:42:10.975  INFO 13772 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:42:11.029  INFO 13772 --- [http-nio-8080-exec-1] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:42:11.029  INFO 13772 --- [http-nio-8080-exec-1] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/1
+2020-04-03 14:42:11.099  INFO 13772 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:42:11.099  INFO 13772 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:42:11.100  INFO 13772 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/1
+2020-04-03 14:42:11.101  INFO 13772 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:42:11.104  INFO 13772 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:42:11.147  INFO 13772 --- [http-nio-8080-exec-1] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:42:11.154  INFO 13772 --- [http-nio-8080-exec-1] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:42:11.154  INFO 13772 --- [http-nio-8080-exec-1] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:42:11.154  INFO 13772 --- [http-nio-8080-exec-1] c.a.t.service.TicketBuyingServiceImpl    : got into mappinggetevent
+2020-04-03 14:42:11.154  INFO 13772 --- [http-nio-8080-exec-1] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:42:50.325  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:42:50.325  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:42:50.326  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:42:50.327  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:42:50.327  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:42:50.330  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:42:50.336  WARN 13772 --- [http-nio-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2020-04-03 14:42:50.342  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:42:50.342  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:42:50.343  INFO 13772 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /error
+2020-04-03 14:42:54.437  INFO 13772 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:42:54.438  INFO 13772 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:42:54.439  INFO 13772 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:42:54.439  INFO 13772 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:42:54.440  INFO 13772 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:42:54.443  INFO 13772 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:42:54.455  INFO 13772 --- [http-nio-8080-exec-5] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:42:54.455  INFO 13772 --- [http-nio-8080-exec-5] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0003token ***
+2020-04-03 14:42:54.483  INFO 13772 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:42:54.483  INFO 13772 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:42:54.484  INFO 13772 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:42:54.484  INFO 13772 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:42:54.484  INFO 13772 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:42:54.488  INFO 13772 --- [http-nio-8080-exec-5] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:42:54.488  INFO 13772 --- [http-nio-8080-exec-5] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:42:54.488  INFO 13772 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : allResponse getEventDetails: 
+2020-04-03 14:42:54.489  INFO 13772 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : notgotevent
+2020-04-03 14:42:54.489  INFO 13772 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:42:54.489  INFO 13772 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : eventdetails null
+2020-04-03 14:42:54.489  INFO 13772 --- [http-nio-8080-exec-5] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "Nem létezik ilyen esemény!", 
+"code": "20001"
+}
+2020-04-03 14:46:00.143  INFO 6736 --- [main] com.adamsimon.appl.TicketApplication     : Starting TicketApplication on RHUB21025 with PID 6736 (C:\Users\VSD5303\Downloads\ticketapp\appl\target\classes started by VSD5303 in C:\Users\VSD5303\Downloads\ticketapp)
+2020-04-03 14:46:00.146  INFO 6736 --- [main] com.adamsimon.appl.TicketApplication     : No active profile set, falling back to default profiles: default
+2020-04-03 14:46:00.966  INFO 6736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-04-03 14:46:01.043  INFO 6736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71ms. Found 4 JPA repository interfaces.
+2020-04-03 14:46:01.544  INFO 6736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:46:01.547  INFO 6736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:46:01.548  INFO 6736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@14e2e1c3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:46:01.550  INFO 6736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:46:01.552  INFO 6736 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:46:01.755  INFO 6736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-04-03 14:46:01.762  INFO 6736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-03 14:46:01.763  INFO 6736 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-03 14:46:01.852  INFO 6736 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-03 14:46:01.852  INFO 6736 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1658 ms
+2020-04-03 14:46:01.955  INFO 6736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-03 14:46:02.127  INFO 6736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-03 14:46:02.134  INFO 6736 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2020-04-03 14:46:02.377  INFO 6736 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-03 14:46:02.436  INFO 6736 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-03 14:46:02.531  INFO 6736 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-03 14:46:02.622  INFO 6736 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-03 14:46:03.288  INFO 6736 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-03 14:46:03.294  INFO 6736 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-03 14:46:03.366  WARN 6736 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-03 14:46:03.972  INFO 6736 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d37aa0f, org.springframework.security.web.context.SecurityContextPersistenceFilter@208f7165, org.springframework.security.web.header.HeaderWriterFilter@29f3185c, org.springframework.security.web.authentication.logout.LogoutFilter@77ba583, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@693f2c89, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9dc782d, com.adamsimon.appl.config.AuthFilter@6076c66, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@485c84d7, org.springframework.security.web.session.SessionManagementFilter@370a8b6e, org.springframework.security.web.access.ExceptionTranslationFilter@399f5daf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c4057f9]
+2020-04-03 14:46:04.063  INFO 6736 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-03 14:46:04.510  INFO 6736 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-03 14:46:04.575  INFO 6736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-03 14:46:04.577  INFO 6736 --- [main] com.adamsimon.appl.TicketApplication     : Started TicketApplication in 4.793 seconds (JVM running for 5.899)
+2020-04-03 14:46:05.117  INFO 6736 --- [RMI TCP Connection(3)-10.197.47.204] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-03 14:46:05.117  INFO 6736 --- [RMI TCP Connection(3)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-03 14:46:05.126  INFO 6736 --- [RMI TCP Connection(3)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-04-03 14:46:08.939  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:46:08.940  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:46:08.942  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:46:08.942  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:46:08.942  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:46:09.075  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:46:09.104  INFO 6736 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:46:09.104  INFO 6736 --- [http-nio-8080-exec-2] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0003token ***
+2020-04-03 14:46:09.148  INFO 6736 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:46:09.148  INFO 6736 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:46:09.148  INFO 6736 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:46:09.150  INFO 6736 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:46:09.152  INFO 6736 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:46:09.176  INFO 6736 --- [http-nio-8080-exec-2] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:46:09.179  INFO 6736 --- [http-nio-8080-exec-2] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:46:09.179  INFO 6736 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : allResponse getEventDetails: 
+2020-04-03 14:46:09.179  INFO 6736 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : notgotevent
+2020-04-03 14:46:09.180  INFO 6736 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:46:09.190 ERROR 6736 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.adamsimon.ticket.service.TicketBuyingServiceImpl.pay(TicketBuyingServiceImpl.java:76) ~[classes/:na]
+	at com.adamsimon.core.service.OutgoingServiceImpl.pay(OutgoingServiceImpl.java:33) ~[classes/:na]
+	at com.adamsimon.core.service.HelperServiceImpl.pay(HelperServiceImpl.java:47) ~[classes/:na]
+	at com.adamsimon.core.service.IncomingRequestServiceImpl.pay(IncomingRequestServiceImpl.java:31) ~[classes/:na]
+	at com.adamsimon.api.service.ApiServiceImpl.pay(ApiServiceImpl.java:39) ~[classes/:na]
+	at com.adamsimon.api.controller.ApiControllerImpl.pay(ApiControllerImpl.java:71) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_212-3-redhat]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_212-3-redhat]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_212-3-redhat]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_212-3-redhat]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at com.adamsimon.appl.config.AuthFilter.lambda$doFilter$0(AuthFilter.java:47) ~[classes/:na]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.successfulAuthentication(AbstractAuthenticationProcessingFilter.java:326) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:240) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at com.adamsimon.appl.config.AuthFilter.doFilter(AuthFilter.java:49) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:109) ~[spring-boot-actuator-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_212-3-redhat]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_212-3-redhat]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_212-3-redhat]
+
+2020-04-03 14:46:09.193  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:46:09.193  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:46:09.193  INFO 6736 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /error
+2020-04-03 14:46:12.588  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:46:12.588  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:46:12.588  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:46:12.588  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:46:12.588  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:46:12.591  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:46:12.592  INFO 6736 --- [http-nio-8080-exec-5] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:46:12.592  INFO 6736 --- [http-nio-8080-exec-5] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0003token ***
+2020-04-03 14:46:12.602  INFO 6736 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:46:12.602  INFO 6736 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:46:12.602  INFO 6736 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:46:12.602  INFO 6736 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:46:12.603  INFO 6736 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:46:12.604  INFO 6736 --- [http-nio-8080-exec-5] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:46:12.604  INFO 6736 --- [http-nio-8080-exec-5] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:46:12.604  INFO 6736 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : allResponse getEventDetails: 
+2020-04-03 14:46:12.604  INFO 6736 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : notgotevent
+2020-04-03 14:46:12.605  INFO 6736 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:46:12.607 ERROR 6736 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+
+java.lang.NullPointerException: null
+	at com.adamsimon.ticket.service.TicketBuyingServiceImpl.pay(TicketBuyingServiceImpl.java:76) ~[classes/:na]
+	at com.adamsimon.core.service.OutgoingServiceImpl.pay(OutgoingServiceImpl.java:33) ~[classes/:na]
+	at com.adamsimon.core.service.HelperServiceImpl.pay(HelperServiceImpl.java:47) ~[classes/:na]
+	at com.adamsimon.core.service.IncomingRequestServiceImpl.pay(IncomingRequestServiceImpl.java:31) ~[classes/:na]
+	at com.adamsimon.api.service.ApiServiceImpl.pay(ApiServiceImpl.java:39) ~[classes/:na]
+	at com.adamsimon.api.controller.ApiControllerImpl.pay(ApiControllerImpl.java:71) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_212-3-redhat]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_212-3-redhat]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_212-3-redhat]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_212-3-redhat]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:92) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at com.adamsimon.appl.config.AuthFilter.lambda$doFilter$0(AuthFilter.java:47) ~[classes/:na]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.successfulAuthentication(AbstractAuthenticationProcessingFilter.java:326) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:240) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at com.adamsimon.appl.config.AuthFilter.doFilter(AuthFilter.java:49) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178) ~[spring-security-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:109) ~[spring-boot-actuator-2.2.5.RELEASE.jar:2.2.5.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.4.RELEASE.jar:5.2.4.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1639) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_212-3-redhat]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_212-3-redhat]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.31.jar:9.0.31]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_212-3-redhat]
+
+2020-04-03 14:46:12.608  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:46:12.608  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:46:12.608  INFO 6736 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /error
+2020-04-03 14:54:12.269  INFO 19808 --- [main] com.adamsimon.appl.TicketApplication     : Starting TicketApplication on RHUB21025 with PID 19808 (C:\Users\VSD5303\Downloads\ticketapp\appl\target\classes started by VSD5303 in C:\Users\VSD5303\Downloads\ticketapp)
+2020-04-03 14:54:12.273  INFO 19808 --- [main] com.adamsimon.appl.TicketApplication     : No active profile set, falling back to default profiles: default
+2020-04-03 14:54:13.142  INFO 19808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-04-03 14:54:13.215  INFO 19808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66ms. Found 4 JPA repository interfaces.
+2020-04-03 14:54:13.675  INFO 19808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:54:13.677  INFO 19808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:54:13.678  INFO 19808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@32b9bd12' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:54:13.679  INFO 19808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:54:13.681  INFO 19808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:54:13.855  INFO 19808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-04-03 14:54:13.861  INFO 19808 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-03 14:54:13.861  INFO 19808 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-03 14:54:13.933  INFO 19808 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-03 14:54:13.933  INFO 19808 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1585 ms
+2020-04-03 14:54:14.027  INFO 19808 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-03 14:54:14.180  INFO 19808 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-03 14:54:14.184  INFO 19808 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2020-04-03 14:54:14.374  INFO 19808 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-03 14:54:14.428  INFO 19808 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-03 14:54:14.516  INFO 19808 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-03 14:54:14.592  INFO 19808 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-03 14:54:15.124  INFO 19808 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-03 14:54:15.129  INFO 19808 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-03 14:54:15.199  WARN 19808 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-03 14:54:15.711  INFO 19808 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@365e65bb, org.springframework.security.web.context.SecurityContextPersistenceFilter@5d37aa0f, org.springframework.security.web.header.HeaderWriterFilter@5c1c9881, org.springframework.security.web.authentication.logout.LogoutFilter@69a73867, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@485c84d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e4afd10, com.adamsimon.appl.config.AuthFilter@52f43225, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55d1f065, org.springframework.security.web.session.SessionManagementFilter@2f99d8c, org.springframework.security.web.access.ExceptionTranslationFilter@1c4057f9, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61554b6b]
+2020-04-03 14:54:15.808  INFO 19808 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-03 14:54:16.249  INFO 19808 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-03 14:54:16.306  INFO 19808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-03 14:54:16.308  INFO 19808 --- [main] com.adamsimon.appl.TicketApplication     : Started TicketApplication in 4.398 seconds (JVM running for 5.185)
+2020-04-03 14:54:16.989  INFO 19808 --- [RMI TCP Connection(1)-10.197.47.204] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-03 14:54:16.989  INFO 19808 --- [RMI TCP Connection(1)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-03 14:54:16.995  INFO 19808 --- [RMI TCP Connection(1)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-04-03 14:54:24.379  INFO 19808 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:24.379  INFO 19808 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:24.381  INFO 19808 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:54:24.381  INFO 19808 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:54:24.381  INFO 19808 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:54:24.514  INFO 19808 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:54:24.541  INFO 19808 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:54:24.541  INFO 19808 --- [http-nio-8080-exec-2] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0003token ***
+2020-04-03 14:54:24.583  INFO 19808 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:24.583  INFO 19808 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:24.583  INFO 19808 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:54:24.584  INFO 19808 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:24.585  INFO 19808 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:24.612  INFO 19808 --- [http-nio-8080-exec-2] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:24.616  INFO 19808 --- [http-nio-8080-exec-2] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:24.616  INFO 19808 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:49.017  INFO 19808 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:49.018  INFO 19808 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:49.018  INFO 19808 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvents/
+2020-04-03 14:54:49.018  INFO 19808 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:54:49.018  INFO 19808 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:54:49.021  INFO 19808 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:54:49.022  INFO 19808 --- [http-nio-8080-exec-4] c.a.api.controller.ApiControllerImpl     : /getEvents/
+2020-04-03 14:54:49.023  INFO 19808 --- [http-nio-8080-exec-4] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvents/
+2020-04-03 14:54:49.028  INFO 19808 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:49.028  INFO 19808 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:49.028  INFO 19808 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:54:49.028  INFO 19808 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:49.028  INFO 19808 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:49.030  INFO 19808 --- [http-nio-8080-exec-4] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:49.030  INFO 19808 --- [http-nio-8080-exec-4] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvents/"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:49.031  INFO 19808 --- [http-nio-8080-exec-4] c.a.api.controller.ApiControllerImpl     : api returns/getEvents/: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:54.241  INFO 19808 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:54.241  INFO 19808 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:54.241  INFO 19808 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:54:54.241  INFO 19808 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:54:54.241  INFO 19808 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:54:54.243  INFO 19808 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:54:54.247  INFO 19808 --- [http-nio-8080-exec-6] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:54:54.247  INFO 19808 --- [http-nio-8080-exec-6] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/1
+2020-04-03 14:54:54.250  INFO 19808 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:54.250  INFO 19808 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:54.251  INFO 19808 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/1
+2020-04-03 14:54:54.251  INFO 19808 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:54.251  INFO 19808 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:54.253  INFO 19808 --- [http-nio-8080-exec-6] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:54.254  INFO 19808 --- [http-nio-8080-exec-6] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/1"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:54.254  INFO 19808 --- [http-nio-8080-exec-6] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:54:54.254  INFO 19808 --- [http-nio-8080-exec-6] c.a.t.service.TicketBuyingServiceImpl    : got into mappinggetevent
+2020-04-03 14:54:54.254  INFO 19808 --- [http-nio-8080-exec-6] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:57.254  INFO 19808 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:57.254  INFO 19808 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:57.255  INFO 19808 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/4
+2020-04-03 14:54:57.255  INFO 19808 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:54:57.255  INFO 19808 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:54:57.257  INFO 19808 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:54:57.259  INFO 19808 --- [http-nio-8080-exec-8] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:54:57.259  INFO 19808 --- [http-nio-8080-exec-8] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/4
+2020-04-03 14:54:57.262  INFO 19808 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:54:57.262  INFO 19808 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:54:57.262  INFO 19808 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/4
+2020-04-03 14:54:57.262  INFO 19808 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:57.262  INFO 19808 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:54:57.264  INFO 19808 --- [http-nio-8080-exec-8] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/4"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:57.265  INFO 19808 --- [http-nio-8080-exec-8] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/4"}},"success":false,"errorMessage":"A partner token nem szerepel!","errorCode":90050}
+2020-04-03 14:54:57.265  INFO 19808 --- [http-nio-8080-exec-8] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:54:57.265  INFO 19808 --- [http-nio-8080-exec-8] c.a.t.service.TicketBuyingServiceImpl    : got into mappinggetevent
+2020-04-03 14:54:57.265  INFO 19808 --- [http-nio-8080-exec-8] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: { 
+"success": "false", 
+"text": "A partner token nem szerepel!", 
+"code": "90050"
+}
+2020-04-03 14:55:25.996  INFO 8060 --- [main] com.adamsimon.appl.TicketApplication     : Starting TicketApplication on RHUB21025 with PID 8060 (C:\Users\VSD5303\Downloads\ticketapp\appl\target\classes started by VSD5303 in C:\Users\VSD5303\Downloads\ticketapp)
+2020-04-03 14:55:25.999  INFO 8060 --- [main] com.adamsimon.appl.TicketApplication     : No active profile set, falling back to default profiles: default
+2020-04-03 14:55:26.654  INFO 8060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-04-03 14:55:26.731  INFO 8060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70ms. Found 4 JPA repository interfaces.
+2020-04-03 14:55:27.198  INFO 8060 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:27.200  INFO 8060 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:27.202  INFO 8060 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@546621c4' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:27.204  INFO 8060 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:27.207  INFO 8060 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:27.387  INFO 8060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-04-03 14:55:27.393  INFO 8060 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-03 14:55:27.393  INFO 8060 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-03 14:55:27.473  INFO 8060 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-03 14:55:27.473  INFO 8060 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1416 ms
+2020-04-03 14:55:27.593  INFO 8060 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-03 14:55:27.764  INFO 8060 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-03 14:55:27.768  INFO 8060 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2020-04-03 14:55:27.981  INFO 8060 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-03 14:55:28.042  INFO 8060 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-03 14:55:28.136  INFO 8060 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-03 14:55:28.215  INFO 8060 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-03 14:55:28.751  INFO 8060 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-03 14:55:28.756  INFO 8060 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-03 14:55:28.822  WARN 8060 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-03 14:55:29.336  INFO 8060 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@aa0dbca, org.springframework.security.web.context.SecurityContextPersistenceFilter@ff21443, org.springframework.security.web.header.HeaderWriterFilter@550fa96f, org.springframework.security.web.authentication.logout.LogoutFilter@194224ca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@31b6b0c7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7752c0e7, com.adamsimon.appl.config.AuthFilter@794cb26b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b7ee56c, org.springframework.security.web.session.SessionManagementFilter@5d01b0d8, org.springframework.security.web.access.ExceptionTranslationFilter@401926df, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@20faaf77]
+2020-04-03 14:55:29.431  INFO 8060 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-03 14:55:29.867  INFO 8060 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-03 14:55:29.925  INFO 8060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-03 14:55:29.926  INFO 8060 --- [main] com.adamsimon.appl.TicketApplication     : Started TicketApplication in 4.276 seconds (JVM running for 5.005)
+2020-04-03 14:55:30.804  INFO 8060 --- [RMI TCP Connection(5)-10.197.47.204] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-03 14:55:30.805  INFO 8060 --- [RMI TCP Connection(5)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-03 14:55:30.811  INFO 8060 --- [RMI TCP Connection(5)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-04-03 14:55:35.450  INFO 8060 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:55:35.451  INFO 8060 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:55:35.452  INFO 8060 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/4
+2020-04-03 14:55:35.452  INFO 8060 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:55:35.453  INFO 8060 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:55:35.592  INFO 8060 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:55:35.616  INFO 8060 --- [http-nio-8080-exec-1] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:55:35.616  INFO 8060 --- [http-nio-8080-exec-1] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/4
+2020-04-03 14:55:35.649  INFO 8060 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:55:35.649  INFO 8060 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:55:35.649  INFO 8060 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/4
+2020-04-03 14:55:35.649  INFO 8060 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:55:35.650  INFO 8060 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:55:35.663  INFO 8060 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : { 
+"success": "false", 
+"text": "A partner token lejárt vagy nem értelmezhető!", 
+"code": "90051"
+}
+2020-04-03 14:55:35.664  INFO 8060 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Got AuthenticationException: { 
+"success": "false", 
+"text": "A partner token lejárt vagy nem értelmezhető!", 
+"code": "90051"
+}
+2020-04-03 14:55:35.689  INFO 8060 --- [http-nio-8080-exec-1] c.a.t.service.PartnerCallerServiceImpl   : 222222222222222  {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/4"}},"success":false,"errorMessage":"A partner token lejárt vagy nem értelmezhető!","errorCode":90051}
+2020-04-03 14:55:35.694  INFO 8060 --- [http-nio-8080-exec-1] c.a.t.service.PartnerCallerServiceImpl   : {"_links":{"self":{"href":"http://localhost:8080/partner/getEvent/4"}},"success":false,"errorMessage":"A partner token lejárt vagy nem értelmezhető!","errorCode":90051}
+2020-04-03 14:55:35.694  INFO 8060 --- [http-nio-8080-exec-1] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:55:35.694  INFO 8060 --- [http-nio-8080-exec-1] c.a.t.service.TicketBuyingServiceImpl    : got into mappinggetevent
+2020-04-03 14:55:35.695  INFO 8060 --- [http-nio-8080-exec-1] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: { 
+"success": "false", 
+"text": "A partner token lejárt vagy nem értelmezhető!", 
+"code": "90051"
+}
+2020-04-03 14:55:56.680  INFO 9968 --- [main] com.adamsimon.appl.TicketApplication     : Starting TicketApplication on RHUB21025 with PID 9968 (C:\Users\VSD5303\Downloads\ticketapp\appl\target\classes started by VSD5303 in C:\Users\VSD5303\Downloads\ticketapp)
+2020-04-03 14:55:56.683  INFO 9968 --- [main] com.adamsimon.appl.TicketApplication     : No active profile set, falling back to default profiles: default
+2020-04-03 14:55:57.304  INFO 9968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-04-03 14:55:57.371  INFO 9968 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61ms. Found 4 JPA repository interfaces.
+2020-04-03 14:55:57.826  INFO 9968 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:57.829  INFO 9968 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:57.831  INFO 9968 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3c0fbd3a' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:57.831  INFO 9968 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:57.834  INFO 9968 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:55:58.004  INFO 9968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-04-03 14:55:58.011  INFO 9968 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-03 14:55:58.012  INFO 9968 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-03 14:55:58.101  INFO 9968 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-03 14:55:58.102  INFO 9968 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1356 ms
+2020-04-03 14:55:58.192  INFO 9968 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-03 14:55:58.337  INFO 9968 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-03 14:55:58.341  INFO 9968 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2020-04-03 14:55:58.534  INFO 9968 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-03 14:55:58.584  INFO 9968 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-03 14:55:58.671  INFO 9968 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-03 14:55:58.746  INFO 9968 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-03 14:55:59.267  INFO 9968 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-03 14:55:59.273  INFO 9968 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-03 14:55:59.332  WARN 9968 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-03 14:55:59.849  INFO 9968 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e8d9bb6, org.springframework.security.web.context.SecurityContextPersistenceFilter@5cbe95b1, org.springframework.security.web.header.HeaderWriterFilter@1de85972, org.springframework.security.web.authentication.logout.LogoutFilter@c4cceb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a82bc58, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2211b44f, com.adamsimon.appl.config.AuthFilter@3de56885, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2673487b, org.springframework.security.web.session.SessionManagementFilter@57b1ec84, org.springframework.security.web.access.ExceptionTranslationFilter@2c2a7d53, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1c171746]
+2020-04-03 14:55:59.945  INFO 9968 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-03 14:56:00.391  INFO 9968 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-03 14:56:00.449  INFO 9968 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-03 14:56:00.451  INFO 9968 --- [main] com.adamsimon.appl.TicketApplication     : Started TicketApplication in 4.11 seconds (JVM running for 4.838)
+2020-04-03 14:56:00.781  INFO 9968 --- [RMI TCP Connection(1)-10.197.47.204] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-03 14:56:00.781  INFO 9968 --- [RMI TCP Connection(1)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-03 14:56:00.787  INFO 9968 --- [RMI TCP Connection(1)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2020-04-03 14:56:34.143  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:56:34.144  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:56:34.145  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/4
+2020-04-03 14:56:34.145  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:56:34.145  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:56:34.276  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:56:34.302  INFO 9968 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:56:34.302  INFO 9968 --- [http-nio-8080-exec-2] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/4
+2020-04-03 14:56:34.336  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:56:34.336  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:56:34.336  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/4
+2020-04-03 14:56:34.336  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:56:34.336  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:56:34.348  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:56:34.378  INFO 9968 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:56:34.379  INFO 9968 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : got into mappinggetevent
+2020-04-03 14:56:34.379  INFO 9968 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: { 
+"success": "false", 
+"text": "Nem létezik ilyen esemény!", 
+"code": "90001"
+}
+2020-04-03 14:56:42.500  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:56:42.500  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:56:42.500  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvent/1
+2020-04-03 14:56:42.501  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:56:42.501  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:56:42.503  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:56:42.504  INFO 9968 --- [http-nio-8080-exec-4] c.a.api.controller.ApiControllerImpl     : /getEvent/
+2020-04-03 14:56:42.505  INFO 9968 --- [http-nio-8080-exec-4] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvent/1
+2020-04-03 14:56:42.509  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:56:42.509  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:56:42.509  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/1
+2020-04-03 14:56:42.509  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:56:42.509  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:56:42.511  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:56:42.512  INFO 9968 --- [http-nio-8080-exec-6] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvent1.json
+2020-04-03 14:56:42.533  INFO 9968 --- [http-nio-8080-exec-4] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:56:42.533  INFO 9968 --- [http-nio-8080-exec-4] c.a.api.controller.ApiControllerImpl     : api returns/getEvent/: EventDataResponse{data=EventData{eventId=1, seats=[Seat{id='S1', price=1000, currency=HUF, reserved=true}, Seat{id='S2', price=1000, currency=HUF, reserved=false}, Seat{id='S3', price=1000, currency=HUF, reserved=false}, Seat{id='S4', price=1000, currency=HUF, reserved=false}, Seat{id='S5', price=1000, currency=HUF, reserved=false}, Seat{id='S6', price=1000, currency=HUF, reserved=true}, Seat{id='S7', price=1000, currency=HUF, reserved=true}, Seat{id='S8', price=1000, currency=HUF, reserved=true}, Seat{id='S9', price=1000, currency=HUF, reserved=true}, Seat{id='S10', price=1000, currency=HUF, reserved=true}]}, success=true}
+2020-04-03 14:56:46.182  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:56:46.182  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:56:46.183  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/getEvents
+2020-04-03 14:56:46.183  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:56:46.183  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:56:46.184  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:56:46.185  INFO 9968 --- [http-nio-8080-exec-5] c.a.api.controller.ApiControllerImpl     : /getEvents/
+2020-04-03 14:56:46.185  INFO 9968 --- [http-nio-8080-exec-5] c.adamsimon.api.service.ApiServiceImpl   : ApiService /getEvents/
+2020-04-03 14:56:46.188  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:56:46.189  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:56:46.189  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:56:46.189  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:56:46.189  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:56:46.190  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:56:46.192  INFO 9968 --- [http-nio-8080-exec-7] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvents.json
+2020-04-03 14:56:46.202  INFO 9968 --- [http-nio-8080-exec-5] c.a.api.controller.ApiControllerImpl     : api returns/getEvents/: EventsResponse{data=[EventDetails{eventId=1, title='Szilveszteri zártkörű rendezvény', Location='null', startTimeStamp=1577836800, endTimeStamp=1577844000}, EventDetails{eventId=2, title='Májusi mulatság', Location='null', startTimeStamp=1588334400, endTimeStamp=1588348800}, EventDetails{eventId=3, title='Necc party', Location='null', startTimeStamp=1607731200, endTimeStamp=1607817599}], success=true}
+2020-04-03 14:57:01.855  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:01.856  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:01.856  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:57:01.857  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:57:01.857  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:57:01.860  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:01.867  INFO 9968 --- [http-nio-8080-exec-8] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:57:01.867  INFO 9968 --- [http-nio-8080-exec-8] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0001token ***
+2020-04-03 14:57:01.878  INFO 9968 --- [http-nio-8080-exec-8] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "Ez a bankkártya nem ehhez a felhasználóhoz tartozik!", 
+"code": "10100"
+}
+2020-04-03 14:57:05.082  INFO 9968 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:05.082  INFO 9968 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:05.082  INFO 9968 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:57:05.082  INFO 9968 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:57:05.083  INFO 9968 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:57:05.085  INFO 9968 --- [http-nio-8080-exec-9] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:05.087  INFO 9968 --- [http-nio-8080-exec-9] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:57:05.087  INFO 9968 --- [http-nio-8080-exec-9] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 1 C0003token ***
+2020-04-03 14:57:05.098  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:05.098  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:05.098  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:57:05.098  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:05.098  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:05.099  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:05.100  INFO 9968 --- [http-nio-8080-exec-10] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvents.json
+2020-04-03 14:57:05.104  INFO 9968 --- [http-nio-8080-exec-9] c.a.t.service.TicketBuyingServiceImpl    : gotevent
+2020-04-03 14:57:05.104  INFO 9968 --- [http-nio-8080-exec-9] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:57:05.104  INFO 9968 --- [http-nio-8080-exec-9] c.a.t.service.TicketBuyingServiceImpl    : current time: 1585918625104
+2020-04-03 14:57:05.104  INFO 9968 --- [http-nio-8080-exec-9] c.a.t.service.TicketBuyingServiceImpl    : event time: 1585918625104
+2020-04-03 14:57:05.106  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:05.106  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:05.106  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/2
+2020-04-03 14:57:05.106  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:05.106  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:05.108  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:05.109  INFO 9968 --- [http-nio-8080-exec-1] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvent2.json
+2020-04-03 14:57:05.115  INFO 9968 --- [http-nio-8080-exec-9] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:57:05.119  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:05.119  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:05.119  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/reserve
+2020-04-03 14:57:05.119  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:05.119  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:05.120  INFO 9968 --- [http-nio-8080-exec-3] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:05.121  INFO 9968 --- [http-nio-8080-exec-3] c.a.partner.service.PartnerServiceImpl   : Trying to make reservation with eventId: 2 for seatId: 1
+2020-04-03 14:57:05.121  INFO 9968 --- [http-nio-8080-exec-3] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvent2.json
+2020-04-03 14:57:05.122  WARN 9968 --- [http-nio-8080-exec-3] c.a.partner.service.PartnerServiceImpl   : ERROR_SEAT_IS_RESERVED for eventId: 2 for seatId: 1
+2020-04-03 14:57:05.125  INFO 9968 --- [http-nio-8080-exec-9] c.a.api.controller.ApiControllerImpl     : api returns/pay: { 
+"success": "false", 
+"text": "Már lefoglalt székre nem lehet jegyet eladni!", 
+"code": "90003"
+}
+2020-04-03 14:57:10.031  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:10.031  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:10.032  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:57:10.032  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:57:10.032  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:57:10.034  INFO 9968 --- [http-nio-8080-exec-2] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:10.035  INFO 9968 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:57:10.035  INFO 9968 --- [http-nio-8080-exec-2] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 2 C0003token ***
+2020-04-03 14:57:10.044  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:10.044  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:10.044  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:57:10.044  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:10.044  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:10.045  INFO 9968 --- [http-nio-8080-exec-6] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:10.046  INFO 9968 --- [http-nio-8080-exec-6] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvents.json
+2020-04-03 14:57:10.049  INFO 9968 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : gotevent
+2020-04-03 14:57:10.049  INFO 9968 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:57:10.049  INFO 9968 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : current time: 1585918630049
+2020-04-03 14:57:10.050  INFO 9968 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : event time: 1585918630049
+2020-04-03 14:57:10.052  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:10.052  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:10.052  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/2
+2020-04-03 14:57:10.053  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:10.053  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:10.054  INFO 9968 --- [http-nio-8080-exec-4] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:10.055  INFO 9968 --- [http-nio-8080-exec-4] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvent2.json
+2020-04-03 14:57:10.057  INFO 9968 --- [http-nio-8080-exec-2] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:57:10.061  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:10.061  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:10.061  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/reserve
+2020-04-03 14:57:10.061  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:10.061  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:10.062  INFO 9968 --- [http-nio-8080-exec-7] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:10.063  INFO 9968 --- [http-nio-8080-exec-7] c.a.partner.service.PartnerServiceImpl   : Trying to make reservation with eventId: 2 for seatId: 2
+2020-04-03 14:57:10.063  INFO 9968 --- [http-nio-8080-exec-7] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvent2.json
+2020-04-03 14:57:10.064  INFO 9968 --- [http-nio-8080-exec-7] c.a.partner.service.PartnerServiceImpl   : SEAT_IS_RESERVED for eventId: 2 for seatId: 2
+2020-04-03 14:57:10.064  INFO 9968 --- [http-nio-8080-exec-7] c.a.partner.service.PartnerServiceImpl   : RESERVATION NUMBER: 10088
+2020-04-03 14:57:10.068  INFO 9968 --- [http-nio-8080-exec-2] c.a.api.controller.ApiControllerImpl     : api returns/pay: ReservationSuccessResponse{success=truereservationId=10088}
+2020-04-03 14:57:11.849  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:11.850  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:11.850  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /api/pay
+2020-04-03 14:57:11.850  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for API
+2020-04-03 14:57:11.850  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Api path found, checking token
+2020-04-03 14:57:11.852  INFO 9968 --- [http-nio-8080-exec-5] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:11.854  INFO 9968 --- [http-nio-8080-exec-5] c.a.api.controller.ApiControllerImpl     : /pay
+2020-04-03 14:57:11.854  INFO 9968 --- [http-nio-8080-exec-5] c.adamsimon.api.service.ApiServiceImpl   : ApiService /pay2 2 C0003token ***
+2020-04-03 14:57:11.858  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:11.859  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:11.859  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvents/
+2020-04-03 14:57:11.859  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:11.859  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:11.860  INFO 9968 --- [http-nio-8080-exec-8] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:11.861  INFO 9968 --- [http-nio-8080-exec-8] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvents.json
+2020-04-03 14:57:11.863  INFO 9968 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : gotevent
+2020-04-03 14:57:11.863  INFO 9968 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : pay eventdetails: 
+2020-04-03 14:57:11.863  INFO 9968 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : current time: 1585918631863
+2020-04-03 14:57:11.863  INFO 9968 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : event time: 1585918631863
+2020-04-03 14:57:11.865  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:11.865  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:11.865  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/getEvent/2
+2020-04-03 14:57:11.865  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:11.865  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:11.866  INFO 9968 --- [http-nio-8080-exec-10] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:11.867  INFO 9968 --- [http-nio-8080-exec-10] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvent2.json
+2020-04-03 14:57:11.869  INFO 9968 --- [http-nio-8080-exec-5] c.a.t.service.TicketBuyingServiceImpl    : partnerResponse getevent: 
+2020-04-03 14:57:11.872  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : AuthFilter filtering by token
+2020-04-03 14:57:11.873  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthFilter     : Attempt Authentication
+2020-04-03 14:57:11.873  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : AuthProvider authenticating path: /partner/reserve
+2020-04-03 14:57:11.873  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : User-Token is provided for PARTNER
+2020-04-03 14:57:11.873  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Partner path found, checking token
+2020-04-03 14:57:11.874  INFO 9968 --- [http-nio-8080-exec-1] com.adamsimon.appl.config.AuthProvider   : Token is valid
+2020-04-03 14:57:11.875  INFO 9968 --- [http-nio-8080-exec-1] c.a.partner.service.PartnerServiceImpl   : Trying to make reservation with eventId: 2 for seatId: 2
+2020-04-03 14:57:11.875  INFO 9968 --- [http-nio-8080-exec-1] c.a.partner.service.PartnerServiceImpl   : Filepath: C:\Users\VSD5303\Downloads\ticketapp\partner\src\main\resources\static\getEvent2.json
+2020-04-03 14:57:11.875  INFO 9968 --- [http-nio-8080-exec-1] c.a.partner.service.PartnerServiceImpl   : SEAT_IS_RESERVED for eventId: 2 for seatId: 2
+2020-04-03 14:57:11.875  INFO 9968 --- [http-nio-8080-exec-1] c.a.partner.service.PartnerServiceImpl   : RESERVATION NUMBER: 358703
+2020-04-03 14:57:11.877  INFO 9968 --- [http-nio-8080-exec-5] c.a.api.controller.ApiControllerImpl     : api returns/pay: ReservationSuccessResponse{success=truereservationId=358703}
+2020-04-03 14:58:09.118  INFO 7544 --- [main] com.adamsimon.appl.TicketApplication     : Starting TicketApplication on RHUB21025 with PID 7544 (C:\Users\VSD5303\Downloads\ticketapp\appl\target\classes started by VSD5303 in C:\Users\VSD5303\Downloads\ticketapp)
+2020-04-03 14:58:09.122  INFO 7544 --- [main] com.adamsimon.appl.TicketApplication     : No active profile set, falling back to default profiles: default
+2020-04-03 14:58:09.785  INFO 7544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-04-03 14:58:09.859  INFO 7544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67ms. Found 4 JPA repository interfaces.
+2020-04-03 14:58:10.349  INFO 7544 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:58:10.352  INFO 7544 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:58:10.353  INFO 7544 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2822c6ff' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:58:10.354  INFO 7544 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:58:10.357  INFO 7544 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-03 14:58:10.542  INFO 7544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-04-03 14:58:10.548  INFO 7544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-04-03 14:58:10.548  INFO 7544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-04-03 14:58:10.620  INFO 7544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-04-03 14:58:10.621  INFO 7544 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1422 ms
+2020-04-03 14:58:10.708  INFO 7544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-04-03 14:58:10.854  INFO 7544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-04-03 14:58:10.859  INFO 7544 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2020-04-03 14:58:11.054  INFO 7544 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-03 14:58:11.106  INFO 7544 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.12.Final
+2020-04-03 14:58:11.193  INFO 7544 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-03 14:58:11.269  INFO 7544 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-03 14:58:11.800  INFO 7544 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-03 14:58:11.805  INFO 7544 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-04-03 14:58:11.873  WARN 7544 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-04-03 14:58:12.387  INFO 7544 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@401ec794, org.springframework.security.web.context.SecurityContextPersistenceFilter@1c171746, org.springframework.security.web.header.HeaderWriterFilter@5613247e, org.springframework.security.web.authentication.logout.LogoutFilter@c94bd18, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@586737ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2673487b, com.adamsimon.appl.config.AuthFilter@d76099a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@47f0f414, org.springframework.security.web.session.SessionManagementFilter@9e50283, org.springframework.security.web.access.ExceptionTranslationFilter@7752c0e7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@16a09809]
+2020-04-03 14:58:12.485  INFO 7544 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-03 14:58:12.922  INFO 7544 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-04-03 14:58:12.982  INFO 7544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-03 14:58:12.983  INFO 7544 --- [main] com.adamsimon.appl.TicketApplication     : Started TicketApplication in 4.22 seconds (JVM running for 5.068)
+2020-04-03 14:58:13.498  INFO 7544 --- [RMI TCP Connection(3)-10.197.47.204] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-03 14:58:13.499  INFO 7544 --- [RMI TCP Connection(3)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-04-03 14:58:13.504  INFO 7544 --- [RMI TCP Connection(3)-10.197.47.204] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms

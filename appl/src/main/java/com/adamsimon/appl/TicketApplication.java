@@ -7,21 +7,21 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
-import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.CorsFilter;
 
-import com.adamsimon.core.config.AuthProvider;
+import com.adamsimon.appl.config.AuthProvider;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.adamsimon" })
-@EntityScan(basePackages = "com.adamsimon.core")
-@PropertySources({@PropertySource("application.properties"), @PropertySource("core.properties")})
-@EnableJpaRepositories(basePackages = "com.adamsimon.core")
+@EntityScan(basePackages = {"com.adamsimon.core", "com.adamsimon.partner", "com.adamsimon.ticket"})
+@PropertySources({@PropertySource("application.properties"),
+        @PropertySource("core.properties"),
+        @PropertySource("partner.properties")})
+@EnableJpaRepositories(basePackages = {"com.adamsimon.core", "com.adamsimon.partner", "com.adamsimon.ticket"})
 public class TicketApplication {
 
     public static void main(String[] args) {

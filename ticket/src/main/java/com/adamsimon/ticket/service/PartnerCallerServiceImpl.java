@@ -8,96 +8,122 @@ import com.adamsimon.commons.dto.responseDto.EventsResponse;
 import com.adamsimon.commons.dto.responseDto.ReservationFailedResponse;
 import com.adamsimon.commons.dto.responseDto.ReservationSuccessResponse;
 import com.adamsimon.ticket.interfaces.PartnerCallerService;
+import com.adamsimon.ticket.interfaces.TicketDatabaseCallerService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class PartnerCallerServiceImpl implements PartnerCallerService {
 
+    @Autowired
+    private final TicketDatabaseCallerService ticketDatabaseCallerService;
     private RestTemplate restTemplate;
+    private final Logger logger = LoggerFactory.getLogger(PartnerCallerServiceImpl.class);
 
-    public PartnerCallerServiceImpl() {
+    public PartnerCallerServiceImpl(TicketDatabaseCallerService ticketDatabaseCallerService) {
+        this.ticketDatabaseCallerService = ticketDatabaseCallerService;
         setRestTemplate();
     }
 
     @Override
     public AbstractPartnerResponse getEvents() {
-        final String response = restTemplate.exchange(
-                buildPartnerCall(GET_EVENTS_NAME, null, null),
-                HttpMethod.GET,
-                getHeadersEntity(),
-                String.class
-        ).getBody();
-        if (response == null) {
-            return returnNotFoundError();
+        try {
+            final String response = restTemplate.exchange(
+                    buildPartnerCall(GET_EVENTS_NAME, null, null),
+                    HttpMethod.GET,
+                    getHeadersEntity(),
+                    String.class
+            ).getBody();
+            System.out.println("PARTNERCALLIGNSERVICE: " + response);
+            if (response == null) {
+                return returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
+            }
+            return new Gson().fromJson(response, EventsResponse.class);
+        } catch (HttpClientErrorException he) {
+            return mapPartnerErrorToErrorObj(Objects.requireNonNull(he.getMessage()));
         }
-        return new Gson().fromJson(response, EventsResponse.class);
     }
 
     @Override
     public AbstractPartnerResponse getEvent(final Long eventId) {
-        final String response = restTemplate.exchange(
-                buildPartnerCall(GET_EVENT_NAME, eventId.toString(), null),
-                HttpMethod.GET,
-                getHeadersEntity(),
-                String.class
-        ).getBody();
-        if (response == null) {
-            return returnNotFoundError();
-        }
-        if (response.contains("\"success\":true")) {
-            return new Gson().fromJson(response, EventDataResponse.class);
-        } else {
-            return new Gson().fromJson(response, ReservationFailedResponse.class);
+        try {
+            final String response = restTemplate.exchange(
+                    buildPartnerCall(GET_EVENT_NAME, eventId.toString(), null),
+                    HttpMethod.GET,
+                    getHeadersEntity(),
+                    String.class
+            ).getBody();
+            if (response == null) {
+                return returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
+            }
+            if (response.contains("\"success\":true")) {
+                return new Gson().fromJson(response, EventDataResponse.class);
+            } else {
+                return new Gson().fromJson(response, ReservationFailedResponse.class);
+            }
+        } catch (HttpClientErrorException he) {
+            return mapPartnerErrorToErrorObj(Objects.requireNonNull(he.getMessage()));
         }
     }
 
     @Override
     public AbstractPartnerResponse pay(final Long eventId, final Long seatId) {
-        final String response = restTemplate.exchange(
-                buildPartnerCall(RESERVE, null, getMapForQueryParams(eventId, seatId)),
-                HttpMethod.POST,
-                getHeadersEntity(),
-                String.class
-        ).getBody();
-        if (response == null) {
-            return returnNotFoundError();
-        }
-        if (response.contains("\"success\":true")) {
-            return new Gson().fromJson(response, ReservationSuccessResponse.class);
-        } else {
-            return new Gson().fromJson(response, ReservationFailedResponse.class);
+        try {
+            final String response = restTemplate.exchange(
+                    buildPartnerCall(RESERVE, null, getMapForQueryParams(eventId, seatId)),
+                    HttpMethod.POST,
+                    getHeadersEntity(),
+                    String.class
+                ).getBody();
+            System.out.println("PAAAAY: " + response);
+            if (response == null) {
+                return returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
+            }
+            if (response.contains("\"success\":true")) {
+                return new Gson().fromJson(response, ReservationSuccessResponse.class);
+            } else {
+                return new Gson().fromJson(response, ReservationFailedResponse.class);
+            }
+        } catch (HttpClientErrorException he) {
+            return mapPartnerErrorToErrorObj(Objects.requireNonNull(he.getMessage()));
         }
     }
 
     @Override
-    public AbstractPartnerResponse returnNotFoundError() {
+    public AbstractPartnerResponse returnError(final int errorCode, final String errorMessage) {
         return new ReservationBuilder.ReservationResponseBuilder()
                 .getFailedBuilder()
-                .withErrorCodeToFail(ERROR_PARTNER_NOT_FOUND_CODE)
-                .withErrorMessageToFail(ERROR_PARTNER_NOT_FOUND_STR)
+                .withErrorCodeToFail(errorCode)
+                .withErrorMessageToFail(errorMessage)
                 .build();
     }
 
     private void setRestTemplate() {
         if (restTemplate == null) {
             this.restTemplate = new RestTemplate();
+//            this.restTemplate.setErrorHandler(new ErrorHandlerServiceImpl());
         }
     }
 
     private HttpEntity getHeadersEntity() {
         final HttpHeaders headers = new HttpHeaders();
-        headers.set(TOKEN_HEADER, "999999999999999999");
+        final String token = this.ticketDatabaseCallerService.getToken();
+        headers.set(TOKEN_HEADER, token);
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new HttpEntity(headers);
     }
@@ -129,5 +155,12 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
         map.put("eventId", eventId.toString());
         map.put("seatId", seatId.toString());
         return map;
+    }
+
+    private AbstractPartnerResponse mapPartnerErrorToErrorObj(String message) {
+        logger.info("222222222222222  " + message.substring(7, message.lastIndexOf("]")));
+        JsonObject jsonObject = new Gson().fromJson(message.substring(7, message.lastIndexOf("]")), JsonObject.class);
+        logger.info(jsonObject.toString());
+        return new ReservationBuilder.ReservationResponseBuilder().getFailedBuilder().withErrorCodeToFail(jsonObject.get("errorCode").getAsInt()).withErrorMessageToFail(jsonObject.get("errorMessage").getAsString()).build();
     }
 }

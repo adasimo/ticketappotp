@@ -3,11 +3,7 @@ package com.adamsimon.core.service;
 import static com.adamsimon.commons.constants.Constants.*;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
-import com.adamsimon.commons.dto.builders.ErrorBuilder;
 import com.adamsimon.commons.dto.builders.ReservationBuilder;
-import com.adamsimon.commons.dto.responseDto.ErrorResponse;
-import com.adamsimon.commons.dto.responseDto.ReservationFailedResponse;
-import com.adamsimon.commons.exceptions.CustomNotFoundException;
 import com.adamsimon.core.interfaces.DatabaseHandlerService;
 import com.adamsimon.core.interfaces.HelperService;
 import com.adamsimon.core.interfaces.OutgoingService;
@@ -40,8 +36,7 @@ public class HelperServiceImpl implements HelperService {
     }
 
     @Override
-    public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final String cardId, final String token)
-        throws CustomNotFoundException {
+    public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final String cardId, final String token) {
         // a security miatt biztos, hogy van ilyen user, így nem ellenőrzöm
         final Long userId = this.databaseHandlerService.getUserFromAuthToken(token).getUserId();
 

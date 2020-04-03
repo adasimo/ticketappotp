@@ -7,7 +7,6 @@ import com.adamsimon.commons.dto.helperDto.Seat;
 import com.adamsimon.commons.dto.responseDto.EventDataResponse;
 import com.adamsimon.commons.dto.responseDto.EventsResponse;
 import com.adamsimon.commons.enums.FilesEnum;
-import com.adamsimon.commons.exceptions.NoSuchEventException;
 import com.adamsimon.partner.interfaces.PartnerService;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 import com.google.gson.Gson;
@@ -39,7 +38,7 @@ public class PartnerServiceImpl implements PartnerService {
     }
 
     @Override
-    public AbstractPartnerResponse getEvent(final Long eventId) throws IOException, ParseException, NoSuchEventException {
+    public AbstractPartnerResponse getEvent(final Long eventId) throws IOException, ParseException {
         return fetchEvent(eventId);
     }
 
@@ -122,7 +121,7 @@ public class PartnerServiceImpl implements PartnerService {
 //        return jsonObject;
     }
 
-    private AbstractPartnerResponse fetchEvent(final Long eventId) throws IOException, ParseException, NoSuchEventException {
+    private AbstractPartnerResponse fetchEvent(final Long eventId) throws IOException, ParseException {
       // megoldható lenne hogy átnézzem a fájlokat az eventId-t keresve és utána azt betöltsem, de a jelen helyzetben
       // ez egyszerűbb megoldás
         switch (eventId.intValue()) {

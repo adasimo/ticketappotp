@@ -49,33 +49,32 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
         return partnerResponse;
     }
 
-    @Override
-    public EventDetails getEventDetails(final Long eventId) {
-        final AbstractPartnerResponse allResponse = getEvents();
-        logger.info("allResponse getEventDetails: ", allResponse);
-        if (allResponse.getSuccess()) {
-            for (EventDetails eventDetails : ((EventsResponse) allResponse).getData()) {
-                if (eventDetails.getEventId().equals(eventId)) {
-                    logger.info("gotevent");
-                    return eventDetails;
-                }
+    public EventDetails getEventDetails(final AbstractPartnerResponse allResponse, final Long eventId) {
+        for (EventDetails eventDetails : ((EventsResponse) allResponse).getData()) {
+            if (eventDetails.getEventId().equals(eventId)) {
+                logger.info("gotevent");
+                return eventDetails;
             }
         }
-        logger.info("notgotevent");
         return null;
     }
 
     @Override
     public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final BigDecimal amount) {
-        final EventDetails eventDetails = getEventDetails(eventId);
-        logger.info("pay eventdetails: ", eventDetails);
-        if (eventDetails == null) {
-            logger.info("eventdetails null");
-            return returnNoSuchEventError();
+        final AbstractPartnerResponse allResponse = getEvents();
+        if (!allResponse.getSuccess()) {
+            return allResponse;
         }
+
+        final EventDetails eventDetails = getEventDetails(allResponse, eventId);
+        logger.info("pay eventdetails: ", eventDetails);
+//        if (eventDetails == null) {
+//            logger.info("eventdetails null");
+//            return this.partnerCallerService.returnError(ERROR_NO_SUCH_EVENT_TICKET, ERROR_NO_SUCH_EVENT_TICKET_STR);
+//        }
         if (checkStartTimeStamp(eventDetails.getStartTimeStamp())) {
             logger.info("event has started");
-            return returnEventHasStartedError();
+            return this.partnerCallerService.returnError(ERROR_EVENT_HAS_STARTED_TICKET, ERROR_EVENT_HAS_STARTED_TICKET_STR);
         }
 
         final AbstractPartnerResponse partnerResponse = getEvent(eventId);
@@ -90,7 +89,7 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
             // itt lehetne egy átváltó logikát valuták között, ha nem HUF a valuta, átadnám paraméterként, és itt check
             // majd lehetne egy RestTemplates hívást egy external API-ra intézni, ami valutaátváltási értékeket ad vissza
             if (amount.compareTo(BigDecimal.valueOf(s.getPrice())) < 0) {
-                return returnAmountIsNotEnoughError();
+                return this.partnerCallerService.returnError(ERROR_AMOUNT_NOT_ENOUGH_CODE, ERROR_AMOUNT_NOT_ENOUGH_STR);
             }
         }
 
@@ -112,54 +111,17 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
     private AbstractPartnerResponse mapPartnerErrorsToCoreErrors(AbstractPartnerResponse partnerResponse) {
         switch (((ReservationFailedResponse) partnerResponse).getErrorCode()) {
             case ERROR_NO_SUCH_EVENT:
-                return returnNoSuchEventError();
+                return this.partnerCallerService.returnError(ERROR_NO_SUCH_EVENT_TICKET, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
             case ERROR_NO_SUCH_SEAT:
-                return returnNoSuchSeatError();
+                return this.partnerCallerService.returnError(ERROR_NO_SUCH_SEAT_TICKET, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
             case ERROR_SEAT_IS_RESERVED:
-                return returnSeatIsReservedError();
+                return this.partnerCallerService.returnError(ERROR_SEAT_IS_RESERVED_TICKET, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
+            case NO_PARTNER_TOKEN_CODE:
+                return this.partnerCallerService.returnError(NO_PARTNER_TOKEN_CODE, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
+            case INVALID_PARTNERTOKEN_CODE:
+                return this.partnerCallerService.returnError(INVALID_PARTNERTOKEN_CODE,((ReservationFailedResponse) partnerResponse).getErrorMessage());
             default:
-                return this.partnerCallerService.returnNotFoundError();
+                return this.partnerCallerService.returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
          }
     }
-
-    private AbstractPartnerResponse returnEventHasStartedError() {
-        return new ReservationBuilder.ReservationResponseBuilder()
-                .getFailedBuilder()
-                .withErrorCodeToFail(ERROR_EVENT_HAS_STARTED_TICKET)
-                .withErrorMessageToFail(ERROR_EVENT_HAS_STARTED_TICKET_STR)
-                .build();
-    }
-
-    private AbstractPartnerResponse returnNoSuchEventError() {
-        return new ReservationBuilder.ReservationResponseBuilder()
-                .getFailedBuilder()
-                .withErrorCodeToFail(ERROR_NO_SUCH_EVENT_TICKET)
-                .withErrorMessageToFail(ERROR_NO_SUCH_EVENT_TICKET_STR)
-                .build();
-    }
-
-    private AbstractPartnerResponse returnNoSuchSeatError() {
-        return new ReservationBuilder.ReservationResponseBuilder()
-                .getFailedBuilder()
-                .withErrorCodeToFail(ERROR_NO_SUCH_SEAT_TICKET)
-                .withErrorMessageToFail(ERROR_NO_SUCH_SEAT_TICKET_STR)
-                .build();
-    }
-
-    private AbstractPartnerResponse returnSeatIsReservedError() {
-        return new ReservationBuilder.ReservationResponseBuilder()
-                .getFailedBuilder()
-                .withErrorCodeToFail(ERROR_SEAT_IS_RESERVED_TICKET)
-                .withErrorMessageToFail(ERROR_SEAT_IS_RESERVED_TICKET_STR)
-                .build();
-    }
-
-    private AbstractPartnerResponse returnAmountIsNotEnoughError() {
-        return new ReservationBuilder.ReservationResponseBuilder()
-                .getFailedBuilder()
-                .withErrorCodeToFail(ERROR_AMOUNT_NOT_ENOUGH_CODE)
-                .withErrorMessageToFail(ERROR_AMOUNT_NOT_ENOUGH_STR)
-                .build();
-    }
-
 }

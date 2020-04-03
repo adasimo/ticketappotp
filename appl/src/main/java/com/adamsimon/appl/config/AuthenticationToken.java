@@ -1,4 +1,4 @@
-package com.adamsimon.core.config;
+package com.adamsimon.appl.config;
 
 import com.adamsimon.commons.dto.securityDto.UserRoles;
 import com.adamsimon.core.domain.User;
@@ -21,8 +21,6 @@ public class AuthenticationToken extends AbstractAuthenticationToken {
     }
 
     public AuthenticationToken(String token, String path, User user) {
-        //note that the constructor needs a collection of GrantedAuthority
-        //but our User have a collection of our UserRole's
         super(new ArrayList<UserRoles>(Collections.singleton(UserRoles.USER)));
         this.token = token;
         this.user = user;

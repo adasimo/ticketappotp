@@ -1,11 +1,8 @@
 package com.adamsimon.core.service;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
-import com.adamsimon.commons.exceptions.CustomNotFoundException;
-import com.adamsimon.core.interfaces.DatabaseHandlerService;
 import com.adamsimon.core.interfaces.HelperService;
 import com.adamsimon.core.interfaces.IncomingRequestService;
-import com.adamsimon.core.interfaces.OutgoingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +27,7 @@ public class IncomingRequestServiceImpl implements IncomingRequestService {
     }
 
     @Override
-    public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final String cardId, final String token)
-            throws CustomNotFoundException {
+    public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final String cardId, final String token) {
         return this.helperService.pay(eventId, seatId, cardId, token);
     }
 }

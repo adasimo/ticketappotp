@@ -3,11 +3,11 @@ package com.adamsimon.commons.dto.helperDto;
 import java.util.Objects;
 
 public class EventDetails {
-    Long eventId;
-    String title;
-    String Location;
-    String startTimeStamp;
-    String endTimeStamp;
+    private Long eventId;
+    private String title;
+    private String Location;
+    private String startTimeStamp;
+    private String endTimeStamp;
 
     public EventDetails() {}
 
