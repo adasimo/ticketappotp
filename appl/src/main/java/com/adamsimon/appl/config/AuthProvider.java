@@ -61,6 +61,7 @@ public class AuthProvider implements AuthenticationProvider {
             final User storedUser = this.coreDatabaseHandlerService.getUserFromAuthToken(token);
 
             if (storedUser == null || !storedUser.getToken().get(0).equals(token)) {
+                //csak az első tokeneket tekintem nem lejártnak
                 AbstractPartnerResponse errorResponse = (new ReservationBuilder.ReservationResponseBuilder())
                         .getFailedBuilder()
                         .withErrorCodeToFail(INVALID_TOKEN_CODE)
