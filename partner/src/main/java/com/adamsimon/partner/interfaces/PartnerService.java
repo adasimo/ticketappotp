@@ -9,5 +9,5 @@ public interface PartnerService {
     AbstractPartnerResponse getEvents() throws IOException, ParseException;
     AbstractPartnerResponse getEvent(final Long eventId) throws IOException, ParseException;
     AbstractPartnerResponse makeReservation(final Long eventId, final Long seatId) throws IOException, ParseException;
-//    JSONObject fetchDataFromFiles(FilesEnum filesEnum) throws IOException, ParseException;
+    void evictCacheOnSchedule();
 }

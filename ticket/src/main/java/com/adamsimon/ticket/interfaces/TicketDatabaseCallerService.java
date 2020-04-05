@@ -4,4 +4,5 @@ import com.adamsimon.ticket.domain.UserToPartner;
 
 public interface TicketDatabaseCallerService {
     String getToken();
+    void evictCacheOnSchedule();
 }

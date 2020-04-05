@@ -12,5 +12,6 @@ public interface PartnerController {
     ResponseEntity<AbstractPartnerResponse> getEvents() throws IOException, ParseException;
     ResponseEntity<AbstractPartnerResponse> getEvent(final Long eventId) throws IOException, ParseException;
     ResponseEntity<AbstractPartnerResponse> makeReserve(final Long eventId, final Long seatId) throws IOException, ParseException;
+    void evictCachesOnSchedule();
 
 }

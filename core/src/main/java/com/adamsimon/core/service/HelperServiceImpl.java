@@ -7,6 +7,8 @@ import com.adamsimon.commons.dto.builders.ReservationBuilder;
 import com.adamsimon.core.interfaces.DatabaseHandlerService;
 import com.adamsimon.core.interfaces.HelperService;
 import com.adamsimon.core.interfaces.OutgoingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +18,10 @@ import java.math.BigDecimal;
 public class HelperServiceImpl implements HelperService {
 
      @Autowired
-     final OutgoingService outgoingService;
+     private final OutgoingService outgoingService;
      @Autowired
-     final DatabaseHandlerService databaseHandlerService;
+     private final DatabaseHandlerService databaseHandlerService;
+     private final Logger logger = LoggerFactory.getLogger(HelperServiceImpl.class);
 
      public HelperServiceImpl(final OutgoingService outgoingService, final DatabaseHandlerService databaseHandlerService) {
          this.outgoingService = outgoingService;
@@ -27,62 +30,47 @@ public class HelperServiceImpl implements HelperService {
 
     @Override
     public AbstractPartnerResponse getEvents() {
+        logger.info("HelperService: " + GET_EVENTS_NAME);
         return this.outgoingService.getEvents();
     }
 
     @Override
     public AbstractPartnerResponse getEvent(final Long eventId) {
-        return this.outgoingService.getEvent(eventId);
+        logger.info("HelperService: " + GET_EVENT_NAME + eventId);
+         return this.outgoingService.getEvent(eventId);
     }
 
     @Override
     public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final String cardId, final String token) {
         // a security miatt biztos, hogy van ilyen user, így nem ellenőrzöm
         final Long userId = this.databaseHandlerService.getUserFromAuthToken(token).getUserId();
-
+        logger.info("UserId for payment got: " + userId);
         if (this.databaseHandlerService.getIfUserIdOwnsCardId(userId, cardId)) {
+            logger.info("User owns card");
             BigDecimal amount = this.databaseHandlerService.getAmountFromCardId(cardId);
             amount = amount == null ? new BigDecimal(0) : amount;
-
-            AbstractPartnerResponse response = this.outgoingService.pay(eventId, seatId, amount);
-//            if (response.getSuccess()) {
-                return response;
-//            } else {
-//                throw new CustomNotFoundException(response.toString());
-//            }
+            logger.info("Amount for payment got: " + amount);
+            final AbstractPartnerResponse response = this.outgoingService.pay(eventId, seatId, amount);
+            if (response.getSuccess()) {
+                //itt levonni az egyenleget egy saveAndFlush-sal
+                logger.info("Payment success");
+                this.databaseHandlerService.evictCacheOnAmountWithCardId(cardId);
+            } else {
+                logger.info("Payment failed");
+            }
+            return response;
         } else {
-//            final AbstractPartnerResponse errorResponse =
+            logger.info("Error: " + INVALID_USER_TO_CARD_CODE + " " + INVALID_USER_TO_CARD_STR);
             return new ReservationBuilder.ReservationResponseBuilder()
                     .getFailedBuilder()
                     .withErrorMessageToFail(INVALID_USER_TO_CARD_STR)
                     .withErrorCodeToFail(INVALID_USER_TO_CARD_CODE)
                     .build();
-//            throw new CustomNotFoundException(errorResponse.toString());
         }
     }
 
-//    private String mapPartnerErrorsToCoreErrors(AbstractPartnerResponse partnerResponse) {
-//         switch (((ReservationFailedResponse) partnerResponse).getErrorCode()) {
-//             case ERROR_NO_SUCH_EVENT:
-//                 return new ErrorBuilder.ErrorResponseBuilder()
-//                         .withCode(ERROR_NO_SUCH_EVENT)
-//                         .withText(ERROR_NO_SUCH_EVENT_STR)
-//                         .build().toString();
-//             case ERROR_NO_SUCH_SEAT:
-//                 return new ErrorBuilder.ErrorResponseBuilder()
-//                         .withCode(ERROR_NO_SUCH_SEAT)
-//                         .withText(ERROR_NO_SUCH_SEAT_STR)
-//                         .build().toString();
-//             case ERROR_SEAT_IS_RESERVED:
-//                 return new ErrorBuilder.ErrorResponseBuilder()
-//                         .withCode(ERROR_SEAT_IS_RESERVED)
-//                         .withText(ERROR_SEAT_IS_RESERVED_STR)
-//                         .build().toString();
-//             default:
-//                 return new ErrorBuilder.ErrorResponseBuilder()
-//                         .withCode(ERROR_DEFAULT)
-//                         .withText(ERROR_DEFAULT_STR)
-//                         .build().toString();
-//         }
-//    }
+    @Override
+    public void evictCacheOnSchedule() {
+        this.databaseHandlerService.evictCacheOnSchedule();
+    }
 }

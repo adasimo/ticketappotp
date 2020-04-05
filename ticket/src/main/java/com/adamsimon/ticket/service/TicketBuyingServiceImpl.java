@@ -1,13 +1,11 @@
 package com.adamsimon.ticket.service;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
-import com.adamsimon.commons.dto.builders.ReservationBuilder;
 import com.adamsimon.commons.dto.helperDto.EventDetails;
 import com.adamsimon.commons.dto.helperDto.Seat;
 import com.adamsimon.commons.dto.responseDto.EventDataResponse;
 import com.adamsimon.commons.dto.responseDto.EventsResponse;
 import com.adamsimon.commons.dto.responseDto.ReservationFailedResponse;
-import com.adamsimon.commons.dto.responseDto.ReservationSuccessResponse;
 import com.adamsimon.ticket.interfaces.PartnerCallerService;
 import com.adamsimon.ticket.interfaces.TicketBuyingResolverService;
 import org.slf4j.Logger;
@@ -27,7 +25,7 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
 
     private final Logger logger = LoggerFactory.getLogger(TicketBuyingServiceImpl.class);
     @Autowired
-    final PartnerCallerService partnerCallerService;
+    private final PartnerCallerService partnerCallerService;
 
     public TicketBuyingServiceImpl(PartnerCallerService partnerCallerService) {
         this.partnerCallerService = partnerCallerService;
@@ -41,18 +39,17 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
     public AbstractPartnerResponse getEvent(final Long eventId) {
 
         final AbstractPartnerResponse partnerResponse = this.partnerCallerService.getEvent(eventId);
-        logger.info("partnerResponse getevent: ", partnerResponse);
         if (!partnerResponse.getSuccess()) {
-            logger.info("got into mappinggetevent");
             return mapPartnerErrorsToCoreErrors(partnerResponse);
         }
+        logger.info("partnerResponse getevent success");
         return partnerResponse;
     }
 
     public EventDetails getEventDetails(final AbstractPartnerResponse allResponse, final Long eventId) {
         for (EventDetails eventDetails : ((EventsResponse) allResponse).getData()) {
             if (eventDetails.getEventId().equals(eventId)) {
-                logger.info("gotevent");
+                logger.info("gotevent: " + eventId);
                 return eventDetails;
             }
         }
@@ -63,23 +60,24 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
     public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final BigDecimal amount) {
         final AbstractPartnerResponse allResponse = getEvents();
         if (!allResponse.getSuccess()) {
+            logger.info("Payment is failed");
             return allResponse;
         }
 
         final EventDetails eventDetails = getEventDetails(allResponse, eventId);
-        logger.info("pay eventdetails: ", eventDetails);
-//        if (eventDetails == null) {
-//            logger.info("eventdetails null");
-//            return this.partnerCallerService.returnError(ERROR_NO_SUCH_EVENT_TICKET, ERROR_NO_SUCH_EVENT_TICKET_STR);
-//        }
+        logger.info("pay eventdetails: " + eventDetails);
+        if (eventDetails == null) {
+            return this.partnerCallerService.returnError(ERROR_NO_SUCH_EVENT_TICKET, ERROR_NO_SUCH_EVENT_TICKET_STR);
+        }
+
         if (checkStartTimeStamp(eventDetails.getStartTimeStamp())) {
-            logger.info("event has started");
             return this.partnerCallerService.returnError(ERROR_EVENT_HAS_STARTED_TICKET, ERROR_EVENT_HAS_STARTED_TICKET_STR);
         }
 
         final AbstractPartnerResponse partnerResponse = getEvent(eventId);
 
         if(!partnerResponse.getSuccess()) {
+            logger.info("Payment is failed");
             return partnerResponse;
         }
 
@@ -95,14 +93,15 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
 
         final AbstractPartnerResponse finalResponse = this.partnerCallerService.pay(eventId, seatId);
         if (finalResponse.getSuccess()) {
+            logger.info("Payment is succeed");
             return finalResponse;
         } else {
             return mapPartnerErrorsToCoreErrors(finalResponse);
         }
     }
 
-    private boolean checkStartTimeStamp(String startTimeStamp) {
-        String currentTimeStampString = new Timestamp(System.currentTimeMillis()).getTime() + "";
+    private boolean checkStartTimeStamp(final String startTimeStamp) {
+        final String currentTimeStampString = new Timestamp(System.currentTimeMillis()).getTime() + "";
         logger.info("current time: " + currentTimeStampString);
         logger.info("event time: " + currentTimeStampString);
         return new BigInteger(startTimeStamp).compareTo(new BigInteger(currentTimeStampString.substring(9))) < 0;
@@ -111,15 +110,15 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
     private AbstractPartnerResponse mapPartnerErrorsToCoreErrors(AbstractPartnerResponse partnerResponse) {
         switch (((ReservationFailedResponse) partnerResponse).getErrorCode()) {
             case ERROR_NO_SUCH_EVENT:
-                return this.partnerCallerService.returnError(ERROR_NO_SUCH_EVENT_TICKET, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
+                return this.partnerCallerService.returnError(ERROR_NO_SUCH_EVENT_TICKET, ERROR_NO_SUCH_EVENT_TICKET_STR);
             case ERROR_NO_SUCH_SEAT:
-                return this.partnerCallerService.returnError(ERROR_NO_SUCH_SEAT_TICKET, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
+                return this.partnerCallerService.returnError(ERROR_NO_SUCH_SEAT_TICKET, ERROR_NO_SUCH_SEAT_TICKET_STR);
             case ERROR_SEAT_IS_RESERVED:
-                return this.partnerCallerService.returnError(ERROR_SEAT_IS_RESERVED_TICKET, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
+                return this.partnerCallerService.returnError(ERROR_SEAT_IS_RESERVED_TICKET, ERROR_SEAT_IS_RESERVED_TICKET_STR);
             case NO_PARTNER_TOKEN_CODE:
-                return this.partnerCallerService.returnError(NO_PARTNER_TOKEN_CODE, ((ReservationFailedResponse) partnerResponse).getErrorMessage());
+                return this.partnerCallerService.returnError(NO_PARTNER_TOKEN_CODE, NO_PARTNER_TOKEN_STR);
             case INVALID_PARTNERTOKEN_CODE:
-                return this.partnerCallerService.returnError(INVALID_PARTNERTOKEN_CODE,((ReservationFailedResponse) partnerResponse).getErrorMessage());
+                return this.partnerCallerService.returnError(INVALID_PARTNERTOKEN_CODE, INVALID_PARTNER_TOKEN_STR);
             default:
                 return this.partnerCallerService.returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
          }

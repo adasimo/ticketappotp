@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class IncomingRequestServiceImpl implements IncomingRequestService {
 
     @Autowired
-    final HelperService helperService;
+    private final HelperService helperService;
 
     public IncomingRequestServiceImpl(final HelperService helperService) {
         this.helperService = helperService;
@@ -29,5 +29,10 @@ public class IncomingRequestServiceImpl implements IncomingRequestService {
     @Override
     public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final String cardId, final String token) {
         return this.helperService.pay(eventId, seatId, cardId, token);
+    }
+
+    @Override
+    public void evictCacheOnSchedule() {
+        this.helperService.evictCacheOnSchedule();
     }
 }

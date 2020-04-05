@@ -38,4 +38,9 @@ public class ApiServiceImpl implements ApiService {
         logger.info("ApiService " + GET_PAY_NAME + eventId + " " + seatId + " " + cardId + "token ***");
         return this.incomingRequestService.pay(eventId, seatId, cardId, token);
     }
+
+    @Override
+    public void evictCacheOnSchedule() {
+        this.incomingRequestService.evictCacheOnSchedule();
+    }
 }

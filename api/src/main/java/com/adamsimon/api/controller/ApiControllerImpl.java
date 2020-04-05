@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -47,7 +48,6 @@ public class ApiControllerImpl implements ApiController {
         logger.info(GET_EVENT_NAME);
         final AbstractPartnerResponse eventsResponse = this.apiService.getEvent(eventId);
         logger.info("api returns" + GET_EVENT_NAME + ": " + eventsResponse.toString());
-//        return ResponseEntity.ok().body(eventAssembler.toModel(eventsResponse));
         if (eventsResponse.getSuccess()) {
             return ResponseEntity.ok().body(new EntityModel<>(eventsResponse,
                     linkTo(methodOn(ApiControllerImpl.class).getEvent(eventId)).withSelfRel(),
@@ -85,5 +85,11 @@ public class ApiControllerImpl implements ApiController {
                     linkTo(methodOn(ApiControllerImpl.class).getEvent(eventId)).withRel("getEvent")
             ));
         }
+    }
+
+    @Override
+    @Scheduled(fixedDelay = AUTO_CACHE_EVICT_INTERVAL)
+    public void evictCacheOnSchedule() {
+        this.apiService.evictCacheOnSchedule();
     }
 }

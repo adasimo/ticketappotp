@@ -6,4 +6,5 @@ public interface HelperService {
     AbstractPartnerResponse getEvents();
     AbstractPartnerResponse getEvent(final Long eventId);
     AbstractPartnerResponse pay(final Long eventId, final Long seatId, final String cardId, final String token);
+    void evictCacheOnSchedule();
 }

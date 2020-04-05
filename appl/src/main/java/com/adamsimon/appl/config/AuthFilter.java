@@ -10,7 +10,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
@@ -23,7 +22,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,9 +51,9 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         try {
-            logger.info("Attempt Authentication");
             final String tokenValue = getTokenValue(request);
             final String path = request.getRequestURI();
+            logger.info("Attempt Authentication for " + path);
 
             AuthenticationToken token = new AuthenticationToken(tokenValue, path);
             token.setDetails(authenticationDetailsSource.buildDetails(request));
@@ -75,20 +73,21 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
                 .orElse(null);
     }
 
-    private AbstractPartnerResponse mapAppErrorToErrorObj(String message) {
-        JsonObject jsonObject = new Gson().fromJson(message, JsonObject.class);
+    private AbstractPartnerResponse mapAppErrorToErrorObj(final String message) {
+        final JsonObject jsonObject = new Gson().fromJson(message, JsonObject.class);
+        logger.info("mapAppErrorToErrorObj: " + jsonObject.toString());
         return new ReservationBuilder.ReservationResponseBuilder().getFailedBuilder().withErrorCodeToFail(jsonObject.get("code").getAsInt()).withErrorMessageToFail(jsonObject.get("text").getAsString()).build();
     }
 
-    private void handleAuthExc(String url, HttpServletResponse response, AuthenticationException aue) throws IOException {
+    private void handleAuthExc(final String url, HttpServletResponse response, final AuthenticationException aue) throws IOException {
         logger.info("Got AuthenticationException: " + aue.getMessage());
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        Map<String, Object> errorDetails = createErrorMapping(url, aue);
+        final Map<String, Object> errorDetails = createErrorMapping(url, aue);
         objectMapper.writeValue(response.getWriter(), errorDetails);
     }
 
-    private Map<String, Object> createErrorMapping(String url, AuthenticationException aue) {
-        ReservationFailedResponse failedResponse = (ReservationFailedResponse) mapAppErrorToErrorObj(aue.getMessage());
+    private Map<String, Object> createErrorMapping(final String url, final AuthenticationException aue) {
+        final ReservationFailedResponse failedResponse = (ReservationFailedResponse) mapAppErrorToErrorObj(aue.getMessage());
 
         final Map<String, Object> errorDetails = new HashMap<>();
         errorDetails.put("success", failedResponse.getSuccess());
@@ -100,7 +99,7 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
         selfMap.put("href", url);
         linksMap.put("self", selfMap);
         errorDetails.put("_links", linksMap);
-
+        logger.info("Errors Mapped: " + errorDetails.toString());
         return errorDetails;
     }
 }

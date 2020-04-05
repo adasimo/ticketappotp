@@ -1,7 +1,7 @@
 package com.adamsimon.commons.abstractions;
 
 public abstract class AbstractPartnerResponse {
-    Boolean success;
+    private Boolean success;
 
     public AbstractPartnerResponse() { super(); }
 

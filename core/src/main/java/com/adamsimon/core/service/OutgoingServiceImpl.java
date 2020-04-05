@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class OutgoingServiceImpl implements OutgoingService {
 
     @Autowired
-    TicketBuyingResolverService ticketBuyingResolverService;
+    private final TicketBuyingResolverService ticketBuyingResolverService;
 
     public OutgoingServiceImpl(TicketBuyingResolverService ticketBuyingResolverService) {
         this.ticketBuyingResolverService = ticketBuyingResolverService;

@@ -1,5 +1,7 @@
 package com.adamsimon.partner.controller;
 
+import static com.adamsimon.commons.constants.Constants.AUTO_CACHE_EVICT_INTERVAL;
+
 import com.adamsimon.partner.interfaces.PartnerService;
 import com.adamsimon.partner.interfaces.PartnerController;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
@@ -7,6 +9,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -16,7 +19,7 @@ import java.io.IOException;
 public class PartnerControllerImpl implements PartnerController {
 
     @Autowired
-    final PartnerService partnerService;
+    private final PartnerService partnerService;
 
     public PartnerControllerImpl(final PartnerService partnerService) {
         this.partnerService = partnerService;
@@ -41,5 +44,11 @@ public class PartnerControllerImpl implements PartnerController {
                                                                @RequestParam final Long seatId)
             throws IOException, ParseException {
         return new ResponseEntity<>(this.partnerService.makeReservation(eventId, seatId), HttpStatus.OK);
+    }
+
+    @Override
+    @Scheduled(fixedDelay = AUTO_CACHE_EVICT_INTERVAL)
+    public void evictCachesOnSchedule() {
+        this.partnerService.evictCacheOnSchedule();
     }
 }

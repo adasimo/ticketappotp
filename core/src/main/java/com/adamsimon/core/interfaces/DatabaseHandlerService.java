@@ -10,4 +10,6 @@ public interface DatabaseHandlerService {
     User getUserFromAuthToken(final String token);
     Boolean getIfUserIdOwnsCardId(final Long userId, final String cardId);
     BigDecimal getAmountFromCardId(final String cardId);
+    void evictCacheOnAmountWithCardId(final String cardId);
+    void evictCacheOnSchedule();
 }

@@ -25,7 +25,6 @@ public class User {
     @Pattern(regexp = "\\w+@\\w+\\.\\w+(,\\s*\\w+@\\w+\\.\\w+)*", message = "{email.invalid}")
     private String email;
 
-//    @Column(table = "UserToken")
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "UserToken", joinColumns = @JoinColumn(name="userId"))
     @GenericGenerator(name = "tokenGen", strategy = "com.adamsimon.core.generators.TokenGenerator")

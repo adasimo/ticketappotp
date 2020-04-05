@@ -7,6 +7,7 @@ import com.adamsimon.commons.dto.helperDto.Seat;
 import com.adamsimon.commons.dto.responseDto.EventDataResponse;
 import com.adamsimon.commons.dto.responseDto.EventsResponse;
 import com.adamsimon.commons.enums.FilesEnum;
+import com.adamsimon.partner.interfaces.PartnerDatabaseCallerService;
 import com.adamsimon.partner.interfaces.PartnerService;
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 import com.google.gson.Gson;
@@ -15,6 +16,7 @@ import com.google.gson.stream.JsonReader;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -30,7 +32,13 @@ public class PartnerServiceImpl implements PartnerService {
     private static final Type EVENTSRESPONSE_TYPE = new TypeToken<EventsResponse>() {}.getType();
     private static final Type EVENTDATARESPONSE_TYPE = new TypeToken<EventDataResponse>() {}.getType();
 
-    final Logger logger = LoggerFactory.getLogger(PartnerServiceImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(PartnerServiceImpl.class);
+    @Autowired
+    private final PartnerDatabaseCallerService partnerDatabaseCallerService;
+
+    public PartnerServiceImpl(PartnerDatabaseCallerService partnerDatabaseCallerService) {
+        this.partnerDatabaseCallerService = partnerDatabaseCallerService;
+    }
 
     @Override
     public AbstractPartnerResponse getEvents() throws IOException, ParseException {
@@ -46,37 +54,41 @@ public class PartnerServiceImpl implements PartnerService {
     public AbstractPartnerResponse makeReservation(final Long eventId, final Long seatId)
             throws IOException, ParseException {
 
-            logger.info("Trying to make reservation with eventId: " + eventId + " for seatId: " + seatId);
-            final AbstractPartnerResponse jsonObject = fetchEvent(eventId);
-            if (!jsonObject.getSuccess()) {
-                return jsonObject;
-            }
-            final Boolean isReserved = fetchSeatIsReserved(jsonObject, seatId);
-            if (isReserved == null) {
-                logger.warn("ERROR_NO_SUCH_SEAT for eventId: " + eventId + " for seatId: " + seatId);
-                return new ReservationBuilder.ReservationResponseBuilder()
-                        .getFailedBuilder()
-                        .withErrorCodeToFail(ERROR_NO_SUCH_SEAT)
-                        .withErrorMessageToFail(ERROR_NO_SUCH_SEAT_STR)
-                        .build();
-                //new ReservationFailed(false, ERROR_NO_SUCH_SEAT);
-            } else if (!isReserved) {
-                logger.warn("ERROR_SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
-                return new ReservationBuilder.ReservationResponseBuilder()
-                        .getFailedBuilder()
-                        .withErrorCodeToFail(ERROR_SEAT_IS_RESERVED)
-                        .withErrorMessageToFail(ERROR_SEAT_IS_RESERVED_STR)
-                        .build();
-//            return new ReservationFailed(false, ERROR_SEAT_IS_RESERVED);
-            } else {
-                logger.info("SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
-                return new ReservationBuilder.ReservationResponseBuilder()
-                        .getSuccessBuilder()
-                        .withReservationIdToSuccess(getReservationNumber())
-                        .build();
-//            return new ReservationSuccess(true, getReservationNumber());
-            }
+        logger.info("Trying to make reservation with eventId: " + eventId + " for seatId: " + seatId);
+        final AbstractPartnerResponse jsonObject = fetchEvent(eventId);
+        if (!jsonObject.getSuccess()) {
+            logger.info("Reservation failed");
+            return jsonObject;
+        }
+        final Boolean isReserved = fetchSeatIsReserved(jsonObject, seatId);
+        if (isReserved == null) {
+            logger.info("ERROR_NO_SUCH_SEAT for eventId: " + eventId + " for seatId: " + seatId);
+            return new ReservationBuilder.ReservationResponseBuilder()
+                    .getFailedBuilder()
+                    .withErrorCodeToFail(ERROR_NO_SUCH_SEAT)
+                    .withErrorMessageToFail(ERROR_NO_SUCH_SEAT_STR)
+                    .build();
+        } else if (!isReserved) {
+            logger.info("ERROR_SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
+            return new ReservationBuilder.ReservationResponseBuilder()
+                    .getFailedBuilder()
+                    .withErrorCodeToFail(ERROR_SEAT_IS_RESERVED)
+                    .withErrorMessageToFail(ERROR_SEAT_IS_RESERVED_STR)
+                    .build();
+        } else {
+            //itt a beolvasott JSONObjectben a Seat-ben a reservedet true-ra állítani és azt egy FileOutPuttal kiírni a
+            //fileba
+            logger.info("SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
+            return new ReservationBuilder.ReservationResponseBuilder()
+                    .getSuccessBuilder()
+                    .withReservationIdToSuccess(getReservationNumber())
+                    .build();
+        }
+    }
 
+    @Override
+    public void evictCacheOnSchedule() {
+        this.partnerDatabaseCallerService.evictCacheOnSchedule();
     }
 
     private Long getReservationNumber() {
@@ -91,9 +103,6 @@ public class PartnerServiceImpl implements PartnerService {
         // át lehetne mappelni objectté, mint a fetchSeatIsReserved metódusban,
         // ha végig iterálok a propertyken és besetelem az objectbe,
         // de fölöslegesnek tartottam, mivel úgyis csak továbbküldésre kerül egy JSON responsebodyként
-
-//        private static final Type REVIEW_TYPE = new TypeToken<List<Review>>() {
-//        }.getType();
         final StringBuilder st = new StringBuilder(new File("").getAbsolutePath());
         st.append(RELATIVE_PATH_TO_JSONS);
         st.append(filesEnum);
@@ -109,16 +118,6 @@ public class PartnerServiceImpl implements PartnerService {
         } else {
             return null;
         }
-
-//        final JSONParser parser = new JSONParser();
-//        final StringBuilder st = new StringBuilder(new File("").getAbsolutePath());
-//        st.append(RELATIVE_PATH_TO_JSONS);
-//        st.append(filesEnum);
-//        logger.info("Filepath: " + st.toString());
-//        final Reader reader = new FileReader(st.toString());
-//        final JSONObject jsonObject = (JSONObject) parser.parse(reader);
-//        logger.info("FileContents: " + jsonObject);
-//        return jsonObject;
     }
 
     private AbstractPartnerResponse fetchEvent(final Long eventId) throws IOException, ParseException {
@@ -132,7 +131,7 @@ public class PartnerServiceImpl implements PartnerService {
             case 3:
                 return fetchDataFromFiles(FilesEnum.GETEVENT3);
             default:
-//                throw new NoSuchEventException();
+                logger.info("ERROR_NO_SUCH_EVENT: " + eventId);
                 return new ReservationBuilder.ReservationResponseBuilder()
                         .getFailedBuilder()
                         .withErrorMessageToFail(ERROR_NO_SUCH_EVENT_STR)
@@ -151,34 +150,9 @@ public class PartnerServiceImpl implements PartnerService {
                     break;
                 }
             }
+            logger.info("SeatId is reserved: " + isReserved);
             return isReserved;
         }
-
         return null;
-
-//        final JSONObject jsonObjFromData = (JSONObject) jsonObject.get(PROP_DATA);
-//        final JSONArray jsonArray = (JSONArray) jsonObjFromData.get(PROP_SEATS);
-//        final Iterator iterator = jsonArray.iterator();
-//        Boolean isReserved = null;
-//
-//        while (iterator.hasNext()) {
-//            final JSONObject seatObj = (JSONObject) iterator.next();
-//            final String seatIdString = seatObj.get(PROP_SEAT_ID).toString().substring(1);
-//            if (seatId.equals(Long.parseLong(seatIdString))) {
-//                isReserved = Boolean.parseBoolean(seatObj.get(PROP_SEAT_RESERVED).toString());
-//                break;
-//            }
-//        }
-//        return isReserved;
     }
-
-//    private EventsResponse fillEventsResponse(JSONObject jsonObject) {
-//        // reflectionos megoldás szebb lenne
-//        EventsResponse eventsResponse = new EventsResponse();
-//        eventsResponse.setSuccess((Boolean) jsonObject.get("success"));
-//
-//    }
-//
-//    private EventDetails[] fillEventDetails()
-
 }

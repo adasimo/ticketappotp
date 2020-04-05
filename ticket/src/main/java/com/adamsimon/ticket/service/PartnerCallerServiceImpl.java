@@ -49,10 +49,10 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
                     getHeadersEntity(),
                     String.class
             ).getBody();
-            System.out.println("PARTNERCALLIGNSERVICE: " + response);
             if (response == null) {
                 return returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
             }
+            logger.info("Partner call response: " + response);
             return new Gson().fromJson(response, EventsResponse.class);
         } catch (HttpClientErrorException he) {
             return mapPartnerErrorToErrorObj(Objects.requireNonNull(he.getMessage()));
@@ -72,8 +72,10 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
                 return returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
             }
             if (response.contains("\"success\":true")) {
+                logger.info("Partner call response: " + response);
                 return new Gson().fromJson(response, EventDataResponse.class);
             } else {
+                logger.info("Error on Partner call response: " + response);
                 return new Gson().fromJson(response, ReservationFailedResponse.class);
             }
         } catch (HttpClientErrorException he) {
@@ -90,13 +92,14 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
                     getHeadersEntity(),
                     String.class
                 ).getBody();
-            System.out.println("PAAAAY: " + response);
             if (response == null) {
                 return returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
             }
             if (response.contains("\"success\":true")) {
+                logger.info("Partner call response: " + response);
                 return new Gson().fromJson(response, ReservationSuccessResponse.class);
             } else {
+                logger.info("Error on Partner call response: " + response);
                 return new Gson().fromJson(response, ReservationFailedResponse.class);
             }
         } catch (HttpClientErrorException he) {
@@ -106,6 +109,7 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
 
     @Override
     public AbstractPartnerResponse returnError(final int errorCode, final String errorMessage) {
+        logger.info("Error on Partner call: " + errorCode + " " + errorMessage);
         return new ReservationBuilder.ReservationResponseBuilder()
                 .getFailedBuilder()
                 .withErrorCodeToFail(errorCode)
@@ -116,7 +120,6 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
     private void setRestTemplate() {
         if (restTemplate == null) {
             this.restTemplate = new RestTemplate();
-//            this.restTemplate.setErrorHandler(new ErrorHandlerServiceImpl());
         }
     }
 
@@ -125,11 +128,12 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
         final String token = this.ticketDatabaseCallerService.getToken();
         headers.set(TOKEN_HEADER, token);
         headers.setContentType(MediaType.APPLICATION_JSON);
+        logger.info("Header has been set to Partner");
         return new HttpEntity(headers);
     }
 
     private String buildPartnerCall(final String methodName, final String pathParam, final Map<String, String> queryParams) {
-        StringBuilder st = new StringBuilder(LOCAL_URL_PREFIX);
+        final StringBuilder st = new StringBuilder(LOCAL_URL_PREFIX);
         st.append(":");
         st.append(LOCAL_PORT);
         st.append(PARTNER_PREFIX);
@@ -147,6 +151,7 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
             }
             st.deleteCharAt(st.lastIndexOf("&"));
         }
+        logger.info("Request URL to Partner has been built: " + st.toString());
         return st.toString();
     }
 
@@ -157,10 +162,10 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
         return map;
     }
 
-    private AbstractPartnerResponse mapPartnerErrorToErrorObj(String message) {
-        logger.info("222222222222222  " + message.substring(7, message.lastIndexOf("]")));
-        JsonObject jsonObject = new Gson().fromJson(message.substring(7, message.lastIndexOf("]")), JsonObject.class);
-        logger.info(jsonObject.toString());
+    private AbstractPartnerResponse mapPartnerErrorToErrorObj(final String message) {
+        logger.info("Partner call response error before mapping: " + message);
+        final JsonObject jsonObject = new Gson().fromJson(message.substring(7, message.lastIndexOf("]")), JsonObject.class);
+        logger.info("Partner call response error after mapping: " + jsonObject.toString());
         return new ReservationBuilder.ReservationResponseBuilder().getFailedBuilder().withErrorCodeToFail(jsonObject.get("errorCode").getAsInt()).withErrorMessageToFail(jsonObject.get("errorMessage").getAsString()).build();
     }
 }

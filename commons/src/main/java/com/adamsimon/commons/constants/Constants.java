@@ -15,10 +15,6 @@ public class Constants {
     public static final String PARTNER_PREFIX = "/partner";
 
     public static final String RELATIVE_PATH_TO_JSONS = "\\partner\\src\\main\\resources\\static\\";
-    public static final String PROP_SEATS = "seats";
-    public static final String PROP_DATA = "data";
-    public static final String PROP_SEAT_ID = "id";
-    public static final String PROP_SEAT_RESERVED = "reserved";
 
     public static final int ERROR_NO_SUCH_EVENT = 90001;
     public static final String ERROR_NO_SUCH_EVENT_STR = "Nem létezik ilyen esemény!";
@@ -62,5 +58,5 @@ public class Constants {
     public static final int ERROR_EVENT_HAS_STARTED_TICKET = 20011;
     public static final String ERROR_EVENT_HAS_STARTED_TICKET_STR = "Olyan eseményre, ami már elkezdődött, nem lehet jegyet eladni!";
 
-    public static final String ERROR_NO_SUCH_EVENT_TEXT = "No such event with id: ";
+    public static final int AUTO_CACHE_EVICT_INTERVAL = 60000;
 }

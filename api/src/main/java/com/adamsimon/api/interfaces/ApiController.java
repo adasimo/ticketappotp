@@ -11,4 +11,5 @@ public interface ApiController {
                                                              final Long seatId,
                                                              final String cardId,
                                                              final String token);
+    void evictCacheOnSchedule();
 }
