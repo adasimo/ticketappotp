@@ -58,5 +58,8 @@ public class Constants {
     public static final int ERROR_EVENT_HAS_STARTED_TICKET = 20011;
     public static final String ERROR_EVENT_HAS_STARTED_TICKET_STR = "Olyan eseményre, ami már elkezdődött, nem lehet jegyet eladni!";
 
+    public static final int ERROR_NO_JSON = 91404;
+    public static final String ERROR_NO_JSON_STR = "Nem létezik az események tárolója!";
+
     public static final int AUTO_CACHE_EVICT_INTERVAL = 60000;
 }

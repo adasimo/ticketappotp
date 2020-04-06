@@ -55,7 +55,7 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
             final String path = request.getRequestURI();
             logger.info("Attempt Authentication for " + path);
 
-            AuthenticationToken token = new AuthenticationToken(tokenValue, path);
+            AuthenticationTokenApi token = new AuthenticationTokenApi(tokenValue, path);
             token.setDetails(authenticationDetailsSource.buildDetails(request));
 
             return this.getAuthenticationManager().authenticate(token);

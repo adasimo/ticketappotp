@@ -20,6 +20,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
@@ -52,10 +53,17 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
             if (response == null) {
                 return returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
             }
-            logger.info("Partner call response: " + response);
-            return new Gson().fromJson(response, EventsResponse.class);
+            if (response.contains("\"success\":true")) {
+                logger.info("Partner call response: " + response);
+                return new Gson().fromJson(response, EventsResponse.class);
+            } else {
+                logger.info("Error on Partner call response: " + response);
+                return new Gson().fromJson(response, ReservationFailedResponse.class);
+            }
         } catch (HttpClientErrorException he) {
             return mapPartnerErrorToErrorObj(Objects.requireNonNull(he.getMessage()));
+        } catch (HttpServerErrorException hse) {
+            return returnError(ERROR_NO_JSON, ERROR_NO_JSON_STR);
         }
     }
 
@@ -80,6 +88,8 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
             }
         } catch (HttpClientErrorException he) {
             return mapPartnerErrorToErrorObj(Objects.requireNonNull(he.getMessage()));
+        } catch (HttpServerErrorException hse) {
+        return returnError(ERROR_NO_JSON, ERROR_NO_JSON_STR);
         }
     }
 
@@ -104,6 +114,8 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
             }
         } catch (HttpClientErrorException he) {
             return mapPartnerErrorToErrorObj(Objects.requireNonNull(he.getMessage()));
+        } catch (HttpServerErrorException hse) {
+            return returnError(ERROR_NO_JSON, ERROR_NO_JSON_STR);
         }
     }
 
@@ -166,6 +178,10 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
         logger.info("Partner call response error before mapping: " + message);
         final JsonObject jsonObject = new Gson().fromJson(message.substring(7, message.lastIndexOf("]")), JsonObject.class);
         logger.info("Partner call response error after mapping: " + jsonObject.toString());
-        return new ReservationBuilder.ReservationResponseBuilder().getFailedBuilder().withErrorCodeToFail(jsonObject.get("errorCode").getAsInt()).withErrorMessageToFail(jsonObject.get("errorMessage").getAsString()).build();
+        return new ReservationBuilder.ReservationResponseBuilder()
+                .getFailedBuilder()
+                .withErrorCodeToFail(jsonObject.get("errorCode").getAsInt())
+                .withErrorMessageToFail(jsonObject.get("errorMessage").getAsString())
+                .build();
     }
 }

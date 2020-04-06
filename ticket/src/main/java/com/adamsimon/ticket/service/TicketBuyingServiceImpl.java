@@ -109,9 +109,9 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
 
     private boolean checkStartTimeStamp(final String startTimeStamp) {
         final String currentTimeStampString = new Timestamp(System.currentTimeMillis()).getTime() + "";
-        logger.info("current time: " + currentTimeStampString);
-        logger.info("event time: " + currentTimeStampString);
-        return new BigInteger(startTimeStamp).compareTo(new BigInteger(currentTimeStampString.substring(9))) < 0;
+        logger.info("current time: " + currentTimeStampString.substring(0, 10));
+        logger.info("event time: " + startTimeStamp);
+        return new BigInteger(startTimeStamp).compareTo(new BigInteger(currentTimeStampString.substring(0, 10))) < 0;
     }
 
     private AbstractPartnerResponse mapPartnerErrorsToCoreErrors(AbstractPartnerResponse partnerResponse) {
@@ -126,6 +126,8 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
                 return this.partnerCallerService.returnError(NO_PARTNER_TOKEN_CODE, NO_PARTNER_TOKEN_STR);
             case INVALID_PARTNERTOKEN_CODE:
                 return this.partnerCallerService.returnError(INVALID_PARTNERTOKEN_CODE, INVALID_PARTNER_TOKEN_STR);
+            case ERROR_NO_JSON:
+                return this.partnerCallerService.returnError(ERROR_NO_JSON, ERROR_NO_JSON_STR);
             default:
                 return this.partnerCallerService.returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
          }

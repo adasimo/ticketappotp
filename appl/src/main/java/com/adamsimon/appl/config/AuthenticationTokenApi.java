@@ -7,12 +7,12 @@ import org.springframework.security.authentication.AbstractAuthenticationToken;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class AuthenticationToken extends AbstractAuthenticationToken {
+public class AuthenticationTokenApi extends AbstractAuthenticationToken {
     private final String token;
     private final User user;
     private final String path;
 
-    public AuthenticationToken(String token, String path) {
+    public AuthenticationTokenApi(String token, String path) {
         super(null);
         this.token = token;
         this.path = path;
@@ -20,7 +20,7 @@ public class AuthenticationToken extends AbstractAuthenticationToken {
         setAuthenticated(false);
     }
 
-    public AuthenticationToken(String token, String path, User user) {
+    public AuthenticationTokenApi(String token, String path, User user) {
         super(new ArrayList<UserRoles>(Collections.singleton(UserRoles.USER)));
         this.token = token;
         this.user = user;

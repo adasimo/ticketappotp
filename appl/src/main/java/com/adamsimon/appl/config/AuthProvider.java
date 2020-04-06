@@ -28,7 +28,7 @@ public class AuthProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication auth) throws AuthenticationException {
-        final AuthenticationToken tokenContainer = (AuthenticationToken) auth;
+        final AuthenticationTokenApi tokenContainer = (AuthenticationTokenApi) auth;
         final String token = tokenContainer.getToken();
         final String path = tokenContainer.getPath();
         logger.info("AuthProvider authenticating path: " + path);
@@ -71,7 +71,7 @@ public class AuthProvider implements AuthenticationProvider {
                 throw new BadCredentialsException(errorResponse.toString());
             }
             logger.info("Token is valid");
-            return new AuthenticationToken(token, path, storedUser);
+            return new AuthenticationTokenApi(token, path, storedUser);
 
         } else if (path.contains("partner")) {
             logger.info("Partner path found, checking token");
@@ -89,12 +89,12 @@ public class AuthProvider implements AuthenticationProvider {
             logger.info("Token is valid");
             return new AuthenticationTokenPartner(token, path, ticketModuleUser);
         } else {
-            return new AuthenticationToken(token, path);
+            return new AuthenticationTokenApi(token, path);
         }
     }
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return AuthenticationToken.class.isAssignableFrom(authentication);
+        return AuthenticationTokenApi.class.isAssignableFrom(authentication);
     }
 }

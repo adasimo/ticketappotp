@@ -5,7 +5,7 @@ import java.util.Objects;
 public class EventDetails {
     private Long eventId;
     private String title;
-    private String Location;
+    private String location;
     private String startTimeStamp;
     private String endTimeStamp;
 
@@ -14,7 +14,7 @@ public class EventDetails {
     public EventDetails(Long eventId, String title, String location, String startTimeStamp, String endTimeStamp) {
         this.eventId = eventId;
         this.title = title;
-        Location = location;
+        this.location = location;
         this.startTimeStamp = startTimeStamp;
         this.endTimeStamp = endTimeStamp;
     }
@@ -36,11 +36,11 @@ public class EventDetails {
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        this.location = location;
     }
 
     public String getStartTimeStamp() {
@@ -64,7 +64,7 @@ public class EventDetails {
         return "EventDetails{" +
                 "eventId=" + eventId +
                 ", title='" + title + '\'' +
-                ", Location='" + Location + '\'' +
+                ", Location='" + location + '\'' +
                 ", startTimeStamp=" + startTimeStamp +
                 ", endTimeStamp=" + endTimeStamp +
                 '}';
@@ -77,13 +77,13 @@ public class EventDetails {
         EventDetails that = (EventDetails) o;
         return Objects.equals(eventId, that.eventId) &&
                 Objects.equals(title, that.title) &&
-                Objects.equals(Location, that.Location) &&
+                Objects.equals(location, that.location) &&
                 Objects.equals(startTimeStamp, that.startTimeStamp) &&
                 Objects.equals(endTimeStamp, that.endTimeStamp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventId, title, Location, startTimeStamp, endTimeStamp);
+        return Objects.hash(eventId, title, location, startTimeStamp, endTimeStamp);
     }
 }
