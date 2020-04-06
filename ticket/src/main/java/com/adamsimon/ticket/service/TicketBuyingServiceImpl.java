@@ -32,7 +32,14 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
     }
     @Override
     public AbstractPartnerResponse getEvents() {
-        return this.partnerCallerService.getEvents();
+
+        final AbstractPartnerResponse partnerResponse = this.partnerCallerService.getEvents();
+        if (!partnerResponse.getSuccess()) {
+            return mapPartnerErrorsToCoreErrors(partnerResponse);
+        }
+
+        logger.info("partnerResponse getevents success");
+        return partnerResponse;
     }
 
     @Override
