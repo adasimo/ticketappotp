@@ -68,7 +68,7 @@ public class PartnerServiceImpl implements PartnerService {
                     .withErrorCodeToFail(ERROR_NO_SUCH_SEAT)
                     .withErrorMessageToFail(ERROR_NO_SUCH_SEAT_STR)
                     .build();
-        } else if (!isReserved) {
+        } else if (isReserved) {
             logger.info("ERROR_SEAT_IS_RESERVED for eventId: " + eventId + " for seatId: " + seatId);
             return new ReservationBuilder.ReservationResponseBuilder()
                     .getFailedBuilder()
@@ -104,7 +104,12 @@ public class PartnerServiceImpl implements PartnerService {
         // ha végig iterálok a propertyken és besetelem az objectbe,
         // de fölöslegesnek tartottam, mivel úgyis csak továbbküldésre kerül egy JSON responsebodyként
         final StringBuilder st = new StringBuilder(new File("").getAbsolutePath());
-        st.append(RELATIVE_PATH_TO_JSONS);
+        logger.info("Absolute path of this file: " + st.toString());
+        if (st.toString().contains("partner")) {
+            st.append(RELATIVE_PATH_TO_JSONS_WITHOUT_P);
+        } else {
+            st.append(RELATIVE_PATH_TO_JSONS);
+        }
         st.append(filesEnum);
         logger.info("Filepath: " + st.toString());
         final Gson gson = new Gson();

@@ -16,7 +16,9 @@ import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.core.env.Environment;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -35,6 +37,9 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
     private final TicketDatabaseCallerService ticketDatabaseCallerService;
     private RestTemplate restTemplate;
     private final Logger logger = LoggerFactory.getLogger(PartnerCallerServiceImpl.class);
+
+    @Autowired
+    Environment environment;
 
     public PartnerCallerServiceImpl(TicketDatabaseCallerService ticketDatabaseCallerService) {
         this.ticketDatabaseCallerService = ticketDatabaseCallerService;
@@ -138,16 +143,17 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
     private HttpEntity getHeadersEntity() {
         final HttpHeaders headers = new HttpHeaders();
         final String token = this.ticketDatabaseCallerService.getToken();
-        headers.set(TOKEN_HEADER, token);
+        headers.set(TOKEN_HEADER_PARTNER, token);
         headers.setContentType(MediaType.APPLICATION_JSON);
         logger.info("Header has been set to Partner");
         return new HttpEntity(headers);
     }
 
     private String buildPartnerCall(final String methodName, final String pathParam, final Map<String, String> queryParams) {
+
         final StringBuilder st = new StringBuilder(LOCAL_URL_PREFIX);
         st.append(":");
-        st.append(LOCAL_PORT);
+        st.append(environment.getProperty("local.server.port"));
         st.append(PARTNER_PREFIX);
         st.append(methodName);
         if (pathParam != null) {

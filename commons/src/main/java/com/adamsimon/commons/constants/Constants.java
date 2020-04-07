@@ -3,9 +3,9 @@ package com.adamsimon.commons.constants;
 public class Constants {
     
     public static final String TOKEN_HEADER = "User-Token";
+    public static final String TOKEN_HEADER_PARTNER = "Partner-Token";
     public static final String PLACEHOLDER_TOKEN_HEADER = "***";
     public static final String LOCAL_URL_PREFIX = "http://localhost";
-    public static final String LOCAL_PORT = "8080";
 
     public static final String GET_EVENTS_NAME = "/getEvents/";
     public static final String GET_EVENT_NAME = "/getEvent/";
@@ -15,6 +15,7 @@ public class Constants {
     public static final String PARTNER_PREFIX = "/partner";
 
     public static final String RELATIVE_PATH_TO_JSONS = "\\partner\\src\\main\\resources\\static\\";
+    public static final String RELATIVE_PATH_TO_JSONS_WITHOUT_P = "\\src\\main\\resources\\static\\";
 
     public static final int ERROR_NO_SUCH_EVENT = 90001;
     public static final String ERROR_NO_SUCH_EVENT_STR = "Nem létezik ilyen esemény!";

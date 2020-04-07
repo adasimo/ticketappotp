@@ -51,8 +51,8 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         try {
-            final String tokenValue = getTokenValue(request);
             final String path = request.getRequestURI();
+            final String tokenValue = getTokenValue(request, path);
             logger.info("Attempt Authentication for " + path);
 
             AuthenticationTokenApi token = new AuthenticationTokenApi(tokenValue, path);
@@ -65,9 +65,15 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
         return null;
     }
 
-    private String getTokenValue(HttpServletRequest req) {
+    private String getTokenValue(HttpServletRequest req, final String pathuri) {
         return Collections.list(req.getHeaderNames()).stream()
-                .filter(header -> header.equalsIgnoreCase(TOKEN_HEADER))
+                .filter(header -> {
+                    if (pathuri.contains("api")) {
+                        return header.equalsIgnoreCase(TOKEN_HEADER);
+                    } else {
+                        return header.equalsIgnoreCase(TOKEN_HEADER_PARTNER);
+                    }
+                })
                 .map(req::getHeader)
                 .findFirst()
                 .orElse(null);

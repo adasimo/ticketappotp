@@ -10,9 +10,11 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class TicketDatabaseCallerServiceImpl implements TicketDatabaseCallerService {
 
     @Autowired
