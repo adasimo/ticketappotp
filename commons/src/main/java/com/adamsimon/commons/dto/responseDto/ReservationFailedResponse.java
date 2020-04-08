@@ -2,6 +2,8 @@ package com.adamsimon.commons.dto.responseDto;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 
+import java.util.Objects;
+
 public class ReservationFailedResponse extends AbstractPartnerResponse {
 
     private Integer errorCode;
@@ -12,7 +14,7 @@ public class ReservationFailedResponse extends AbstractPartnerResponse {
     }
 
     public ReservationFailedResponse(Boolean success, Integer errorCode, String errorMessage) {
-        this.setSuccess(success);
+        super(success);
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }
@@ -40,5 +42,19 @@ public class ReservationFailedResponse extends AbstractPartnerResponse {
                 "\"text\": " + "\"" + errorMessage + "\", \n" +
                 "\"code\": " + "\"" + errorCode + "\"\n" +
                 "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ReservationFailedResponse that = (ReservationFailedResponse) o;
+        return Objects.equals(getErrorCode(), that.getErrorCode()) &&
+                Objects.equals(getErrorMessage(), that.getErrorMessage());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getErrorCode(), getErrorMessage());
     }
 }

@@ -10,7 +10,7 @@ public class ReservationSuccessResponse extends AbstractPartnerResponse {
     public ReservationSuccessResponse() { super(); }
 
     public ReservationSuccessResponse(Boolean success, Long reservationId) {
-        this.setSuccess(success);
+        super(success);
         this.reservationId = reservationId;
     }
 

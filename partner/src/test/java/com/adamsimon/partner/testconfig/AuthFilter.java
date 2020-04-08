@@ -1,6 +1,4 @@
-package com.adamsimon.appl.config;
-
-import static com.adamsimon.commons.constants.Constants.*;
+package com.adamsimon.partner.testconfig;
 
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 import com.adamsimon.commons.dto.builders.ReservationBuilder;
@@ -25,6 +23,9 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.adamsimon.commons.constants.Constants.TOKEN_HEADER;
+import static com.adamsimon.commons.constants.Constants.TOKEN_HEADER_PARTNER;
 
 public class AuthFilter extends AbstractAuthenticationProcessingFilter {
 
@@ -55,7 +56,7 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
             final String tokenValue = getTokenValue(request, path);
             logger.info("Attempt Authentication for " + path);
 
-            AuthenticationTokenApi token = new AuthenticationTokenApi(tokenValue, path);
+            AuthenticationTokenPartner token = new AuthenticationTokenPartner(tokenValue, path);
             token.setDetails(authenticationDetailsSource.buildDetails(request));
 
             return this.getAuthenticationManager().authenticate(token);
@@ -100,13 +101,6 @@ public class AuthFilter extends AbstractAuthenticationProcessingFilter {
         errorDetails.put("errorMessage", failedResponse.getErrorMessage());
         errorDetails.put("errorCode", failedResponse.getErrorCode());
 
-        if(!url.contains("partner")) {
-            final Map<String, Object> linksMap = new HashMap<>();
-            final Map<String, Object> selfMap = new HashMap<>();
-            selfMap.put("href", url);
-            linksMap.put("self", selfMap);
-            errorDetails.put("_links", linksMap);
-        }
         logger.info("Errors Mapped: " + errorDetails.toString());
         return errorDetails;
     }

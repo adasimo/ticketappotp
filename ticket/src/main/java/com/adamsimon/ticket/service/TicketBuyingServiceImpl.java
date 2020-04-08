@@ -53,16 +53,6 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
         return partnerResponse;
     }
 
-    public EventDetails getEventDetails(final AbstractPartnerResponse allResponse, final Long eventId) {
-        for (EventDetails eventDetails : ((EventsResponse) allResponse).getData()) {
-            if (eventDetails.getEventId().equals(eventId)) {
-                logger.info("gotevent: " + eventId);
-                return eventDetails;
-            }
-        }
-        return null;
-    }
-
     @Override
     public AbstractPartnerResponse pay(final Long eventId, final Long seatId, final BigDecimal amount) {
         final AbstractPartnerResponse allResponse = getEvents();
@@ -107,11 +97,15 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
         }
     }
 
-    private boolean checkStartTimeStamp(final String startTimeStamp) {
-        final String currentTimeStampString = new Timestamp(System.currentTimeMillis()).getTime() + "";
-        logger.info("current time: " + currentTimeStampString.substring(0, 10));
-        logger.info("event time: " + startTimeStamp);
-        return new BigInteger(startTimeStamp).compareTo(new BigInteger(currentTimeStampString.substring(0, 10))) < 0;
+    //package-private
+    EventDetails getEventDetails(final AbstractPartnerResponse allResponse, final Long eventId) {
+        for (EventDetails eventDetails : ((EventsResponse) allResponse).getData()) {
+            if (eventDetails.getEventId().equals(eventId)) {
+                logger.info("gotevent: " + eventId);
+                return eventDetails;
+            }
+        }
+        return null;
     }
 
     private AbstractPartnerResponse mapPartnerErrorsToCoreErrors(AbstractPartnerResponse partnerResponse) {
@@ -131,5 +125,12 @@ public class TicketBuyingServiceImpl implements TicketBuyingResolverService {
             default:
                 return this.partnerCallerService.returnError(ERROR_PARTNER_NOT_FOUND_CODE, ERROR_PARTNER_NOT_FOUND_STR);
          }
+    }
+
+    private boolean checkStartTimeStamp(final String startTimeStamp) {
+        final String currentTimeStampString = new Timestamp(System.currentTimeMillis()).getTime() + "";
+        logger.info("current time: " + currentTimeStampString.substring(0, 10));
+        logger.info("event time: " + startTimeStamp);
+        return new BigInteger(startTimeStamp).compareTo(new BigInteger(currentTimeStampString.substring(0, 10))) < 0;
     }
 }
