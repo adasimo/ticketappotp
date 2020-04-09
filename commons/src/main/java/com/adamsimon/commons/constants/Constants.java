@@ -10,7 +10,6 @@ public class Constants {
     public static final String GET_EVENTS_NAME = "/getEvents/";
     public static final String GET_EVENT_NAME = "/getEvent/";
     public static final String GET_PAY_NAME = "/pay";
-    public static final String GET_RESERVE_NAME = "/reserve";
     public static final String RESERVE = "/reserve";
     public static final String PARTNER_PREFIX = "/partner";
 

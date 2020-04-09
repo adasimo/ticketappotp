@@ -10,7 +10,6 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "Users")
-//@SecondaryTable(name = "UserToken", pkJoinColumns = @PrimaryKeyJoinColumn(name = "userId", referencedColumnName = "userId"))
 public class User {
 
     @Id

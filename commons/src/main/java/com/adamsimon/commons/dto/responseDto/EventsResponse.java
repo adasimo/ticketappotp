@@ -8,7 +8,6 @@ import java.util.Objects;
 
 public class EventsResponse extends AbstractPartnerResponse {
     private List<EventDetails> data;
-//    Boolean success;
 
     public EventsResponse() {}
 

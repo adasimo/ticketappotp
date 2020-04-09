@@ -1,9 +1,6 @@
-package com.adamsimon.partner.controller;
+package com.adamsimon.partner.integrationtests;
 
-import static com.adamsimon.commons.constants.Constants.*;
-import static org.junit.Assert.*;
-
-import com.adamsimon.commons.dto.responseDto.EventsResponse;
+import com.adamsimon.commons.dto.responseDto.EventDataResponse;
 import com.adamsimon.commons.dto.responseDto.ReservationFailedResponse;
 import com.adamsimon.partner.TestConfigurationPartnerBoot;
 import com.adamsimon.partner.interfaces.PartnerController;
@@ -25,19 +22,22 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static com.adamsimon.commons.constants.Constants.*;
+import static org.junit.Assert.*;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = TestConfigurationPartnerBoot.class)
-public class TestGetEventsPartnerAuthAndControllerTest {
+public class TestGetEventPartnerAuthAndControllerTest {
 
     @Autowired
-    PartnerController partnerController;
+    private PartnerController partnerController;
     @Autowired
-    PartnerService partnerService;
+    private PartnerService partnerService;
     @Autowired
-    Environment environment;
+    private Environment environment;
     @MockBean
-    PartnerDatabaseCallerService partnerDatabaseCallerService;
+    private PartnerDatabaseCallerService partnerDatabaseCallerService;
     @LocalServerPort
     private String serverPort;
     private TestRestTemplate restTemplate;
@@ -58,35 +58,47 @@ public class TestGetEventsPartnerAuthAndControllerTest {
     }
 
     @Test
-    public void getEventsShouldSuccess() {
-        assertTrue(this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvents",
+    public void getEventShouldSuccess() {
+        assertTrue(this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvent/1",
                 HttpMethod.GET,
                 getHeadersEntity(true,true),
                 String.class).getStatusCode().is2xxSuccessful());
     }
 
     @Test
-    public void getEventsShouldHavePropertiesWhenSuccess() {
-        final EventsResponse respose = this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvents",
+    public void getEventShouldHavePropertiesWhenSuccess() {
+        final EventDataResponse response = this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvent/1",
                 HttpMethod.GET,
                 getHeadersEntity(true,true),
-                EventsResponse.class).getBody();
-        assertNotNull(respose);
-        assertTrue(respose.getSuccess());
-        assertTrue(respose.getData().size() > 0);
+                EventDataResponse.class).getBody();
+        assertNotNull(response);
+        assertTrue(response.getSuccess());
+        assertEquals(1, response.getData().getEventId().intValue());
     }
 
     @Test
-    public void getEventsShouldGiveUnauthorizedWhenInvalidToken() {
-        assertTrue(this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvents",
+    public void getEventShouldGiveNoSuchEvent() {
+        final ReservationFailedResponse respose = this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvent/999",
+                HttpMethod.GET,
+                getHeadersEntity(true,true),
+                ReservationFailedResponse.class).getBody();
+        assertNotNull(respose);
+        assertFalse(respose.getSuccess());
+        assertEquals(ERROR_NO_SUCH_EVENT, respose.getErrorCode().intValue());
+        assertEquals(ERROR_NO_SUCH_EVENT_STR, respose.getErrorMessage());
+    }
+
+    @Test
+    public void getEventShouldGiveUnauthorizedWhenInvalidToken() {
+        assertTrue(this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvent/1",
                 HttpMethod.GET,
                 getHeadersEntity(true,false),
                 String.class).getStatusCode().is4xxClientError());
     }
 
     @Test
-    public void getEventsShouldGiveErrorInvalidPartnerToken() {
-        final ReservationFailedResponse response = this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvents",
+    public void getEventShouldGiveErrorInvalidPartnerToken() {
+        final ReservationFailedResponse response = this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvent/1",
                 HttpMethod.GET,
                 getHeadersEntity(true,false),
                 ReservationFailedResponse.class).getBody();
@@ -97,23 +109,23 @@ public class TestGetEventsPartnerAuthAndControllerTest {
     }
 
     @Test
-    public void getEventsShouldGiveUnauthorizedWhenNoToken() {
-        assertTrue(this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvents",
+    public void getEventShouldGiveUnauthorizedWhenNoToken() {
+        assertTrue(this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvent/1",
                 HttpMethod.GET,
                 getHeadersEntity(false,false),
                 String.class).getStatusCode().is4xxClientError());
     }
 
     @Test
-    public void getEventsShouldGiveErrorNoPartnerToken() {
-        final ReservationFailedResponse response = this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvents",
-                HttpMethod.GET,
-                getHeadersEntity(false,false),
-                ReservationFailedResponse.class).getBody();
-        assertNotNull(response);
-        assertFalse(response.getSuccess());
-        assertEquals(NO_PARTNER_TOKEN_CODE, response.getErrorCode().intValue());
-        assertEquals(NO_PARTNER_TOKEN_STR, response.getErrorMessage());
+    public void getEventShouldGiveErrorNoPartnerToken() {
+            final ReservationFailedResponse response = this.restTemplate.exchange(LOCAL_URL_PREFIX + ":" + serverPort + "partner/getEvent/1",
+                    HttpMethod.GET,
+                    getHeadersEntity(false,false),
+                    ReservationFailedResponse.class).getBody();
+            assertNotNull(response);
+            assertFalse(response.getSuccess());
+            assertEquals(NO_PARTNER_TOKEN_CODE, response.getErrorCode().intValue());
+            assertEquals(NO_PARTNER_TOKEN_STR, response.getErrorMessage());
     }
 
     private HttpEntity getHeadersEntity(final boolean tokenIncluded, final boolean isAuthToken) {

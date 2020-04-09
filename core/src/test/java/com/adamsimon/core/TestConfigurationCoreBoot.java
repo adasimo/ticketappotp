@@ -1,4 +1,4 @@
-package com.adamsimon.ticket;
+package com.adamsimon.core;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
@@ -9,12 +9,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootConfiguration
 @EnableAutoConfiguration
-@ComponentScan(basePackages = "com.adamsimon.ticket")
-@EntityScan(basePackages = {"com.adamsimon.ticket"})
-@EnableJpaRepositories(basePackages = {"com.adamsimon.ticket"})
-public class TestConfigurationTicketBoot {
+@ComponentScan(basePackages = "com.adamsimon.core")
+@EntityScan(basePackages = {"com.adamsimon.core"})
+@EnableJpaRepositories(basePackages = {"com.adamsimon.core"})
+public class TestConfigurationCoreBoot {
 
     public static void main(String[] args) {
-        SpringApplication.run(TestConfigurationTicketBoot.class, args);
+        SpringApplication.run(TestConfigurationCoreBoot.class, args);
     }
 }

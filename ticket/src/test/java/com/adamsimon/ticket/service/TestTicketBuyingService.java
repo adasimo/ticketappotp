@@ -1,7 +1,5 @@
 package com.adamsimon.ticket.service;
 
-import static com.adamsimon.commons.constants.Constants.*;
-
 import com.adamsimon.commons.abstractions.AbstractPartnerResponse;
 import com.adamsimon.commons.dto.builders.ReservationBuilder;
 import com.adamsimon.commons.dto.helperDto.EventData;
@@ -9,34 +7,24 @@ import com.adamsimon.commons.dto.helperDto.EventDetails;
 import com.adamsimon.commons.dto.helperDto.Seat;
 import com.adamsimon.commons.dto.responseDto.EventDataResponse;
 import com.adamsimon.commons.dto.responseDto.EventsResponse;
-import com.adamsimon.commons.dto.responseDto.ReservationFailedResponse;
 import com.adamsimon.commons.dto.responseDto.ReservationSuccessResponse;
 import com.adamsimon.commons.enums.CurrencyEnum;
-import com.adamsimon.ticket.interfaces.PartnerCallerService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Answers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.RETURNS_MOCKS;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestTicketBuyingService {
-    @Mock//(answer = Answers.RETURNS_MOCKS)
+    @Mock
     private PartnerCallerServiceImpl partnerCallerService;
     @InjectMocks
     private TicketBuyingServiceImpl ticketBuyingService;

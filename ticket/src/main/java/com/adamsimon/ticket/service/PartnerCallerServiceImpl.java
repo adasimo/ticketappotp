@@ -11,13 +11,9 @@ import com.adamsimon.ticket.interfaces.PartnerCallerService;
 import com.adamsimon.ticket.interfaces.TicketDatabaseCallerService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -25,7 +21,6 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -153,7 +148,11 @@ public class PartnerCallerServiceImpl implements PartnerCallerService {
 
         final StringBuilder st = new StringBuilder(LOCAL_URL_PREFIX);
         st.append(":");
-        st.append(environment.getProperty("local.server.port"));
+        if (environment != null) {
+            st.append(environment.getProperty("local.server.port"));
+        } else {
+            st.append(8080);
+        }
         st.append(PARTNER_PREFIX);
         st.append(methodName);
         if (pathParam != null) {

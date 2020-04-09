@@ -1,43 +1,47 @@
 package com.adamsimon.ticket.service;
 
-import com.adamsimon.ticket.TestConfigurationTicketBoot;
-import com.adamsimon.ticket.interfaces.PartnerCallerService;
-import com.adamsimon.ticket.interfaces.TicketBuyingResolverService;
-import com.adamsimon.ticket.interfaces.TicketDatabaseCallerService;
+import com.adamsimon.ticket.domain.UserToPartner;
 import com.adamsimon.ticket.repository.UserRepositoryToPartner;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.cache.CacheManager;
+
+import java.util.Optional;
 
 import static org.junit.Assert.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
-@RunWith(SpringRunner.class)
-@DataJpaTest
-@ContextConfiguration(classes = TestConfigurationTicketBoot.class)
+@RunWith(MockitoJUnitRunner.class)
 public class TestTicketDataBaseCallerService {
-    @MockBean
-    PartnerCallerService partnerCallerService;
-    @MockBean
-    TicketBuyingResolverService ticketBuyingService;
-    @MockBean
-    TicketDatabaseCallerService ticketDatabaseCallerService;
-    @MockBean
-    UserRepositoryToPartner userRepositoryToPartner;
+    @InjectMocks
+    private TicketDatabaseCallerServiceImpl ticketDatabaseCallerService;
+    @Mock
+    private UserRepositoryToPartner userRepositoryToPartner;
+    @Mock
+    private CacheManager cacheManager;
+
+    @Before
+    public void setup() {
+        final UserToPartner userToPartner = new UserToPartner();
+        userToPartner.setToken("token");
+        when(userRepositoryToPartner.findById(any())).thenReturn(Optional.of(userToPartner));
+    }
 
     @Test
-    public void beansShouldNotBeNull() {
-        assertNotNull(partnerCallerService);
-        assertNotNull(ticketBuyingService);
+    public void shouldInit() {
         assertNotNull(ticketDatabaseCallerService);
         assertNotNull(userRepositoryToPartner);
+        assertNotNull(cacheManager);
     }
 
     @Test
-    public void findByTokenTestShouldWork() {
-        assertNotNull(userRepositoryToPartner.findByToken("a5eA4E8F7fgu5hk6af3fsaGgfAteAe46FL3aI67EfN"));
+    public void getTokenShouldGiveToken() {
+        assertNotNull(ticketDatabaseCallerService.getToken());
     }
+
 }
